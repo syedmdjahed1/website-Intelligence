@@ -1,0 +1,26 @@
+{
+  "id": "laravel",
+  "name": "Laravel",
+  "category": "Backend Framework",
+  "description": "PHP web application framework (inferred from public signals)",
+  "website": "https://laravel.com",
+  "visibility": "server-inferred",
+  "minConfidence": 70,
+  "implies": ["php"],
+  "patterns": [
+    {
+      "type": "cookie",
+      "pattern": "^laravel_session$",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "laravel_session cookie"
+    },
+    {
+      "type": "cookie",
+      "pattern": "^XSRF-TOKEN$",
+      "flags": "i",
+      "confidence": 20,
+      "evidence": "XSRF-TOKEN cookie (supporting signal)"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "twitter-cards",
+  "name": "Twitter Cards",
+  "category": "SEO & Meta",
+  "description": "Twitter / X card meta tags",
+  "website": "https://developer.twitter.com/en/docs/twitter-for-websites/cards",
+  "visibility": "client",
+  "minConfidence": 70,
+  "patterns": [
+    {
+      "type": "meta",
+      "name": "twitter:card",
+      "pattern": ".",
+      "flags": "i",
+      "confidence": 90,
+      "evidence": "twitter:card meta present"
+    },
+    {
+      "type": "html",
+      "pattern": "name=[\"']twitter:",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Twitter Card meta tags in HTML"
+    }
+  ]
+}

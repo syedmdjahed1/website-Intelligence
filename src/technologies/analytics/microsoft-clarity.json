@@ -1,0 +1,38 @@
+{
+  "id": "microsoft-clarity",
+  "name": "Microsoft Clarity",
+  "category": "Analytics",
+  "description": "Behavior analytics and session insights from Microsoft",
+  "website": "https://clarity.microsoft.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "clarity\\.ms/tag/|www\\.clarity\\.ms/",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Microsoft Clarity script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "clarity",
+      "confidence": 30,
+      "evidence": "window.clarity present (weak alone)"
+    },
+    {
+      "type": "html",
+      "pattern": "clarity\\.ms/tag/|clarity\\(\\s*['\"]set['\"]",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Clarity snippet in HTML"
+    },
+    {
+      "type": "cookie",
+      "pattern": "^_clck$|^_clsk$",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Clarity cookie name"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "wordpress",
+  "name": "WordPress",
+  "category": "CMS",
+  "description": "Open-source content management system",
+  "website": "https://wordpress.org",
+  "visibility": "client",
+  "minConfidence": 70,
+  "implies": ["php"],
+  "patterns": [
+    {
+      "type": "meta",
+      "name": "generator",
+      "pattern": "WordPress",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "generator meta tag mentions WordPress"
+    },
+    {
+      "type": "script",
+      "pattern": "/wp-content/|/wp-includes/",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "WordPress asset path in script URL"
+    },
+    {
+      "type": "link",
+      "pattern": "/wp-content/|/wp-includes/",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "WordPress asset path in link URL"
+    },
+    {
+      "type": "url",
+      "pattern": "/wp-content/|/wp-includes/|/wp-json/",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "WordPress path in page URL pool"
+    },
+    {
+      "type": "cookie",
+      "pattern": "^(wordpress_|wp-settings-|wp-settings-time-)",
+      "flags": "i",
+      "confidence": 50,
+      "evidence": "WordPress cookie name"
+    },
+    {
+      "type": "html",
+      "pattern": "/wp-content/|/wp-includes/|wp-block-|wp-emoji",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "WordPress markers in HTML"
+    }
+  ],
+  "versionPatterns": [
+    {
+      "type": "meta",
+      "name": "generator",
+      "pattern": "WordPress\\s+([0-9]+(?:\\.[0-9]+)*)",
+      "flags": "i",
+      "evidence": "WordPress version in generator meta"
+    }
+  ]
+}

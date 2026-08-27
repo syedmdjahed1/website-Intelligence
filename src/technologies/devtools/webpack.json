@@ -1,0 +1,31 @@
+{
+  "id": "webpack",
+  "name": "Webpack",
+  "category": "Developer Tools",
+  "description": "JavaScript module bundler",
+  "website": "https://webpack.js.org",
+  "visibility": "client",
+  "minConfidence": 70,
+  "patterns": [
+    {
+      "type": "global",
+      "pattern": "webpackChunk",
+      "confidence": 85,
+      "evidence": "webpackChunk global"
+    },
+    {
+      "type": "html",
+      "pattern": "webpackJsonp|webpackChunk|__webpack_require__",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Webpack runtime markers"
+    },
+    {
+      "type": "script",
+      "pattern": "webpack|chunk\\.[a-f0-9]+\\.js",
+      "flags": "i",
+      "confidence": 40,
+      "evidence": "Webpack-style chunk script (weak alone)"
+    }
+  ]
+}

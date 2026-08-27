@@ -1,0 +1,40 @@
+{
+  "id": "woocommerce",
+  "name": "WooCommerce",
+  "category": "CMS",
+  "description": "WordPress e-commerce plugin",
+  "website": "https://woocommerce.com",
+  "visibility": "client",
+  "minConfidence": 70,
+  "implies": ["wordpress", "php"],
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "/plugins/woocommerce/|woocommerce(?:\\.min)?\\.js",
+      "flags": "i",
+      "confidence": 90,
+      "evidence": "WooCommerce script path"
+    },
+    {
+      "type": "link",
+      "pattern": "/plugins/woocommerce/",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "WooCommerce stylesheet path"
+    },
+    {
+      "type": "html",
+      "pattern": "woocommerce|wc-block",
+      "flags": "i",
+      "confidence": 50,
+      "evidence": "WooCommerce markup markers"
+    },
+    {
+      "type": "cookie",
+      "pattern": "^woocommerce_",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "WooCommerce cookie name"
+    }
+  ]
+}

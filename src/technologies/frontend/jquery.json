@@ -1,0 +1,38 @@
+{
+  "id": "jquery",
+  "name": "jQuery",
+  "category": "JavaScript Library",
+  "description": "Fast, small JavaScript library for DOM utilities",
+  "website": "https://jquery.com",
+  "visibility": "client",
+  "minConfidence": 40,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "jquery(?:[-.]\\d+\\.?\\d*\\.?\\d*)?(?:\\.slim)?(?:\\.min)?\\.js",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "jQuery script URL detected"
+    },
+    {
+      "type": "script",
+      "pattern": "code\\.jquery\\.com|cdn\\.jsdelivr\\.net/npm/jquery",
+      "flags": "i",
+      "confidence": 50,
+      "evidence": "jQuery CDN URL detected"
+    },
+    {
+      "type": "global",
+      "pattern": "jQuery",
+      "confidence": 60,
+      "evidence": "window.jQuery global"
+    }
+  ],
+  "versionPatterns": [
+    {
+      "type": "globalPath",
+      "path": "jQuery.fn.jquery",
+      "evidence": "jQuery.fn.jquery"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "bootstrap",
+  "name": "Bootstrap",
+  "category": "CSS Framework",
+  "description": "Front-end toolkit for responsive layouts",
+  "website": "https://getbootstrap.com",
+  "visibility": "client",
+  "minConfidence": 40,
+  "patterns": [
+    {
+      "type": "link",
+      "pattern": "bootstrap(?:\\.min)?\\.css|bootstrap@|/bootstrap/",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Bootstrap stylesheet URL"
+    },
+    {
+      "type": "script",
+      "pattern": "bootstrap(?:\\.bundle)?(?:\\.min)?\\.js|bootstrap@",
+      "flags": "i",
+      "confidence": 50,
+      "evidence": "Bootstrap script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "bootstrap",
+      "confidence": 45,
+      "evidence": "window.bootstrap global"
+    },
+    {
+      "type": "html",
+      "pattern": "data-bs-toggle=|data-toggle=\"modal\"|class=\"[^\"]*\\bnavbar-expand",
+      "flags": "i",
+      "confidence": 30,
+      "evidence": "Bootstrap markup patterns"
+    }
+  ]
+}

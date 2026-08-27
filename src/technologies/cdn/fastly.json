@@ -1,0 +1,32 @@
+{
+  "id": "fastly",
+  "name": "Fastly",
+  "category": "CDN",
+  "description": "Edge cloud CDN platform",
+  "website": "https://www.fastly.com",
+  "visibility": "client",
+  "minConfidence": 70,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "fastly\\.net|fastlylb\\.net",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Fastly CDN host in script URL"
+    },
+    {
+      "type": "link",
+      "pattern": "fastly\\.net",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Fastly CDN host in link URL"
+    },
+    {
+      "type": "html",
+      "pattern": "fastly\\.net|fastly-insights\\.com",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Fastly markers in HTML"
+    }
+  ]
+}

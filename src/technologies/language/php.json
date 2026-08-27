@@ -1,0 +1,33 @@
+{
+  "id": "php",
+  "name": "PHP",
+  "category": "Programming Language",
+  "description": "Server-side scripting language",
+  "website": "https://www.php.net",
+  "visibility": "server-inferred",
+  "minConfidence": 70,
+  "patterns": [
+    {
+      "type": "meta",
+      "name": "generator",
+      "pattern": "WordPress|Drupal|Joomla",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "CMS generator implies PHP"
+    },
+    {
+      "type": "cookie",
+      "pattern": "^laravel_session$|^PHPSESSID$",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "PHP session cookie"
+    },
+    {
+      "type": "url",
+      "pattern": "\\.php(?:\\?|$)",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": ".php URL path"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "onetrust",
+  "name": "OneTrust",
+  "category": "Cookie & Consent",
+  "description": "Consent / privacy management platform",
+  "website": "https://www.onetrust.com",
+  "visibility": "client",
+  "minConfidence": 70,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "cdn\\.cookielaw\\.org|onetrust\\.com|otSDKStub",
+      "flags": "i",
+      "confidence": 90,
+      "evidence": "OneTrust script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "OneTrust",
+      "confidence": 85,
+      "evidence": "window.OneTrust present"
+    },
+    {
+      "type": "html",
+      "pattern": "cdn\\.cookielaw\\.org|ot-sdk|OneTrust",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "OneTrust markers in HTML"
+    },
+    {
+      "type": "cookie",
+      "pattern": "^OptanonAlertBoxClosed$|^OptanonConsent$",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "OneTrust consent cookie"
+    }
+  ]
+}

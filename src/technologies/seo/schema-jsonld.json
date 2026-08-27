@@ -1,0 +1,24 @@
+{
+  "id": "schema-jsonld",
+  "name": "Schema.org (JSON-LD)",
+  "category": "SEO & Meta",
+  "description": "Structured data via JSON-LD",
+  "website": "https://schema.org",
+  "visibility": "client",
+  "minConfidence": 70,
+  "patterns": [
+    {
+      "type": "selector",
+      "pattern": "script[type=\"application/ld+json\"]",
+      "confidence": 95,
+      "evidence": "JSON-LD script tag present"
+    },
+    {
+      "type": "html",
+      "pattern": "application/ld\\+json",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "JSON-LD mime type in HTML"
+    }
+  ]
+}

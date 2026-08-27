@@ -1,0 +1,53 @@
+{
+  "id": "shopify",
+  "name": "Shopify",
+  "category": "CMS",
+  "description": "Commerce platform / hosted storefront",
+  "website": "https://www.shopify.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "cdn\\.shopify\\.com|shopifycloud\\.com|shopify\\.com/s/",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Shopify CDN / script URL"
+    },
+    {
+      "type": "link",
+      "pattern": "cdn\\.shopify\\.com",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Shopify CDN stylesheet/link"
+    },
+    {
+      "type": "global",
+      "pattern": "Shopify",
+      "confidence": 75,
+      "evidence": "window.Shopify global"
+    },
+    {
+      "type": "meta",
+      "name": "shopify-digital-wallet",
+      "pattern": ".",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Shopify digital wallet meta"
+    },
+    {
+      "type": "cookie",
+      "pattern": "^_shopify_|cart_currency|secure_customer_sig",
+      "flags": "i",
+      "confidence": 50,
+      "evidence": "Shopify cookie name"
+    },
+    {
+      "type": "html",
+      "pattern": "cdn\\.shopify\\.com|Shopify\\.theme|shopify-section",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Shopify markers in HTML"
+    }
+  ]
+}

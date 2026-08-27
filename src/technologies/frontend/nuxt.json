@@ -1,0 +1,39 @@
+{
+  "id": "nuxt",
+  "name": "Nuxt",
+  "category": "Frontend Framework",
+  "description": "Vue.js meta-framework",
+  "website": "https://nuxt.com",
+  "visibility": "client",
+  "minConfidence": 70,
+  "implies": ["vue", "nodejs"],
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "/_nuxt/",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "Nuxt static asset path"
+    },
+    {
+      "type": "link",
+      "pattern": "/_nuxt/",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Nuxt asset link path"
+    },
+    {
+      "type": "global",
+      "pattern": "__NUXT__",
+      "confidence": 90,
+      "evidence": "window.__NUXT__ present"
+    },
+    {
+      "type": "html",
+      "pattern": "id=\"__NUXT__\"|/_nuxt/",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Nuxt markers in HTML"
+    }
+  ]
+}

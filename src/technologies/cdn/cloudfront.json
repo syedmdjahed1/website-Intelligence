@@ -1,0 +1,32 @@
+{
+  "id": "cloudfront",
+  "name": "Amazon CloudFront",
+  "category": "CDN",
+  "description": "AWS content delivery network",
+  "website": "https://aws.amazon.com/cloudfront/",
+  "visibility": "client",
+  "minConfidence": 70,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "cloudfront\\.net",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "CloudFront host in script URL"
+    },
+    {
+      "type": "link",
+      "pattern": "cloudfront\\.net",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "CloudFront host in link URL"
+    },
+    {
+      "type": "html",
+      "pattern": "cloudfront\\.net",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "CloudFront host in HTML"
+    }
+  ]
+}

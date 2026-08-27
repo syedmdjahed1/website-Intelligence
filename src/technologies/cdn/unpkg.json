@@ -1,0 +1,25 @@
+{
+  "id": "unpkg",
+  "name": "unpkg",
+  "category": "CDN",
+  "description": "npm CDN",
+  "website": "https://unpkg.com",
+  "visibility": "client",
+  "minConfidence": 70,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "unpkg\\.com",
+      "flags": "i",
+      "confidence": 90,
+      "evidence": "unpkg script URL"
+    },
+    {
+      "type": "link",
+      "pattern": "unpkg\\.com",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "unpkg link URL"
+    }
+  ]
+}

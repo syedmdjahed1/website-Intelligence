@@ -1,0 +1,57 @@
+{
+  "id": "google-analytics",
+  "name": "Google Analytics",
+  "category": "Analytics",
+  "description": "Website analytics from Google (gtag / analytics.js / GA4)",
+  "website": "https://analytics.google.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "www\\.googletagmanager\\.com/gtag/js|google-analytics\\.com/(?:analytics|ga)\\.js|googletagmanager\\.com/gtag",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Google Analytics / gtag script URL"
+    },
+    {
+      "type": "script",
+      "pattern": "google-analytics\\.com/g/collect|region\\d+\\.google-analytics\\.com",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Google Analytics collect endpoint reference"
+    },
+    {
+      "type": "global",
+      "pattern": "gtag",
+      "confidence": 40,
+      "evidence": "window.gtag present"
+    },
+    {
+      "type": "global",
+      "pattern": "ga",
+      "confidence": 25,
+      "evidence": "window.ga present (weak alone)"
+    },
+    {
+      "type": "global",
+      "pattern": "dataLayer",
+      "confidence": 20,
+      "evidence": "window.dataLayer present (shared with GTM)"
+    },
+    {
+      "type": "html",
+      "pattern": "gtag\\(\\s*['\"]config['\"]\\s*,\\s*['\"]G-[A-Z0-9]+|UA-\\d+-\\d+|google-analytics\\.com/analytics\\.js",
+      "flags": "i",
+      "confidence": 65,
+      "evidence": "Google Analytics config / UA|G- ID in page"
+    },
+    {
+      "type": "cookie",
+      "pattern": "^_ga(?:_|$)|^_gid$",
+      "flags": "i",
+      "confidence": 45,
+      "evidence": "Google Analytics cookie name"
+    }
+  ]
+}

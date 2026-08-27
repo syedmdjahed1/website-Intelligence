@@ -1,0 +1,40 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs / temp
+*.log
+*.tmp
+*.temp
+.cache/
+
+# Node (if added later)
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# Local env / secrets
+.env
+.env.*
+!.env.example
+*.pem
+credentials.json
+
+# Build / release artifacts
+*.zip
+dist/
+build/
+*.crx
+*.pem
+
+# Oversized source assets (compressed copies are kept)
+assets/icons/brand-icon-source.png
+
+# Cursor / local tooling noise
+.cursor/
+agent-transcripts/

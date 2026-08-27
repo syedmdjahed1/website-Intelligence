@@ -1,0 +1,32 @@
+{
+  "id": "akamai",
+  "name": "Akamai",
+  "category": "CDN",
+  "description": "Content delivery network",
+  "website": "https://www.akamai.com",
+  "visibility": "client",
+  "minConfidence": 70,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "akamai(?:zed)?\\.net|akamaitechnologies\\.com|akamaicdn\\.com",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Akamai CDN host in script URL"
+    },
+    {
+      "type": "link",
+      "pattern": "akamai(?:zed)?\\.net|akamaitechnologies\\.com",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Akamai CDN host in link URL"
+    },
+    {
+      "type": "html",
+      "pattern": "akamai(?:zed)?\\.net|edgesuite\\.net",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Akamai host markers in HTML"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "font-awesome",
+  "name": "Font Awesome",
+  "category": "JavaScript Library",
+  "description": "Icon toolkit",
+  "website": "https://fontawesome.com",
+  "visibility": "client",
+  "minConfidence": 70,
+  "patterns": [
+    {
+      "type": "link",
+      "pattern": "font-awesome|fontawesome",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "Font Awesome stylesheet URL"
+    },
+    {
+      "type": "script",
+      "pattern": "fontawesome|font-awesome",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Font Awesome script URL"
+    },
+    {
+      "type": "html",
+      "pattern": "font-awesome|fa-solid|fa-brands|kit\\.fontawesome\\.com",
+      "flags": "i",
+      "confidence": 45,
+      "evidence": "Font Awesome class markers (weak alone)"
+    }
+  ]
+}

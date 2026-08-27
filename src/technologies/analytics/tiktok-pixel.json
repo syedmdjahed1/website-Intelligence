@@ -1,0 +1,38 @@
+{
+  "id": "tiktok-pixel",
+  "name": "TikTok Pixel",
+  "category": "Analytics",
+  "description": "TikTok advertising and conversion tracking pixel",
+  "website": "https://ads.tiktok.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "analytics\\.tiktok\\.com/i18n/pixel|tiktok\\.com/i18n/pixel",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "TikTok Pixel script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "ttq",
+      "confidence": 70,
+      "evidence": "window.ttq present"
+    },
+    {
+      "type": "html",
+      "pattern": "ttq\\.load\\(|analytics\\.tiktok\\.com/i18n/pixel",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "TikTok Pixel snippet in HTML"
+    },
+    {
+      "type": "cookie",
+      "pattern": "^_ttp$|^ttcsid",
+      "flags": "i",
+      "confidence": 45,
+      "evidence": "TikTok tracking cookie name"
+    }
+  ]
+}

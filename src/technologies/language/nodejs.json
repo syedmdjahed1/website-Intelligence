@@ -1,0 +1,31 @@
+{
+  "id": "nodejs",
+  "name": "Node.js",
+  "category": "Programming Language",
+  "description": "JavaScript runtime (often implied by Next.js / Nuxt)",
+  "website": "https://nodejs.org",
+  "visibility": "server-inferred",
+  "minConfidence": 70,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "/_next/static/|/_nuxt/",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Next.js / Nuxt asset path implies Node.js"
+    },
+    {
+      "type": "global",
+      "pattern": "__NEXT_DATA__",
+      "confidence": 80,
+      "evidence": "Next.js runtime implies Node.js"
+    },
+    {
+      "type": "html",
+      "pattern": "id=\"__NEXT_DATA__\"|/_nuxt/",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Next/Nuxt HTML markers imply Node.js"
+    }
+  ]
+}

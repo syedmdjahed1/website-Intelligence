@@ -1,0 +1,39 @@
+{
+  "id": "cloudflare",
+  "name": "Cloudflare",
+  "category": "CDN",
+  "description": "CDN / security / DNS edge network",
+  "website": "https://www.cloudflare.com",
+  "visibility": "client",
+  "minConfidence": 70,
+  "patterns": [
+    {
+      "type": "cookie",
+      "pattern": "^(__cf_bm|cf_clearance|__cfduid|__cflb|_cfuvid)$",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "Cloudflare cookie name"
+    },
+    {
+      "type": "script",
+      "pattern": "/cdn-cgi/|cloudflareinsights\\.com|challenges\\.cloudflare\\.com",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Cloudflare script path"
+    },
+    {
+      "type": "link",
+      "pattern": "/cdn-cgi/",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Cloudflare /cdn-cgi/ link"
+    },
+    {
+      "type": "html",
+      "pattern": "/cdn-cgi/|cloudflareinsights\\.com|cf-browser-verification",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Cloudflare markers in HTML"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "angular",
+  "name": "Angular",
+  "category": "Frontend Framework",
+  "description": "TypeScript-based web application framework",
+  "website": "https://angular.dev",
+  "visibility": "client",
+  "minConfidence": 40,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "angular(?:\\.min)?\\.js|@angular/|runtime(?:\\.\\w+)?\\.js.*polyfills|main(?:\\.\\w+)?\\.js.*angular",
+      "flags": "i",
+      "confidence": 35,
+      "evidence": "Angular-related script URL"
+    },
+    {
+      "type": "selector",
+      "pattern": "[ng-version], [_ngcontent-], [_nghost-], [ng-app], app-root",
+      "confidence": 65,
+      "evidence": "Angular DOM attribute/component signature"
+    },
+    {
+      "type": "global",
+      "pattern": "ng",
+      "confidence": 35,
+      "evidence": "window.ng global"
+    },
+    {
+      "type": "global",
+      "pattern": "angular",
+      "confidence": 45,
+      "evidence": "window.angular global"
+    },
+    {
+      "type": "html",
+      "pattern": "ng-version=|_ngcontent-|_nghost-|ng-app=",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Angular markers in HTML"
+    }
+  ],
+  "versionPatterns": [
+    {
+      "type": "selectorAttr",
+      "selector": "[ng-version]",
+      "attr": "ng-version",
+      "evidence": "ng-version attribute"
+    }
+  ]
+}

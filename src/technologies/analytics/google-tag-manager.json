@@ -1,0 +1,45 @@
+{
+  "id": "google-tag-manager",
+  "name": "Google Tag Manager",
+  "category": "Analytics",
+  "description": "Tag management system from Google",
+  "website": "https://tagmanager.google.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "googletagmanager\\.com/gtm\\.js|googletagmanager\\.com/ns\\.html",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Google Tag Manager script URL"
+    },
+    {
+      "type": "html",
+      "pattern": "googletagmanager\\.com/gtm\\.js|GTM-[A-Z0-9]+",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "GTM container snippet or ID in HTML"
+    },
+    {
+      "type": "iframe",
+      "pattern": "googletagmanager\\.com/ns\\.html",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "GTM noscript iframe"
+    },
+    {
+      "type": "global",
+      "pattern": "google_tag_manager",
+      "confidence": 70,
+      "evidence": "window.google_tag_manager present"
+    },
+    {
+      "type": "cookie",
+      "pattern": "^_gcl_|_gac_",
+      "flags": "i",
+      "confidence": 30,
+      "evidence": "Google click/conversion cookie (often via GTM)"
+    }
+  ]
+}

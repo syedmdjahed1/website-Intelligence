@@ -1,0 +1,34 @@
+{
+  "id": "open-graph",
+  "name": "Open Graph",
+  "category": "SEO & Meta",
+  "description": "Facebook Open Graph meta protocol",
+  "website": "https://ogp.me",
+  "visibility": "client",
+  "minConfidence": 70,
+  "patterns": [
+    {
+      "type": "meta",
+      "name": "og:title",
+      "pattern": ".",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "og:title meta present"
+    },
+    {
+      "type": "meta",
+      "name": "og:image",
+      "pattern": ".",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "og:image meta present"
+    },
+    {
+      "type": "html",
+      "pattern": "property=[\"']og:",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Open Graph properties in HTML"
+    }
+  ]
+}

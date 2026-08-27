@@ -1,0 +1,56 @@
+{
+  "id": "react",
+  "name": "React",
+  "category": "Frontend Framework",
+  "description": "JavaScript library for building user interfaces",
+  "website": "https://react.dev",
+  "visibility": "client",
+  "minConfidence": 40,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "react(?:-dom)?(?:\\.production|\\.development|\\.min)?\\.js",
+      "flags": "i",
+      "confidence": 42,
+      "evidence": "React script URL detected"
+    },
+    {
+      "type": "script",
+      "pattern": "/react(?:-dom)?@",
+      "flags": "i",
+      "confidence": 40,
+      "evidence": "React package path in script URL"
+    },
+    {
+      "type": "selector",
+      "pattern": "[data-reactroot], [data-reactid], [data-react-helmet], [data-react-checksum]",
+      "confidence": 55,
+      "evidence": "React DOM attribute signature"
+    },
+    {
+      "type": "global",
+      "pattern": "React",
+      "confidence": 48,
+      "evidence": "window.React global"
+    },
+    {
+      "type": "global",
+      "pattern": "ReactDOM",
+      "confidence": 48,
+      "evidence": "window.ReactDOM global"
+    },
+    {
+      "type": "global",
+      "pattern": "__REACT_DEVTOOLS_GLOBAL_HOOK__",
+      "confidence": 60,
+      "evidence": "React DevTools hook present"
+    },
+    {
+      "type": "html",
+      "pattern": "data-reactroot|data-reactid|__reactFiber|__reactContainer",
+      "flags": "i",
+      "confidence": 50,
+      "evidence": "React markup/runtime markers in HTML"
+    }
+  ]
+}

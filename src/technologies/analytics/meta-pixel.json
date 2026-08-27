@@ -1,0 +1,44 @@
+{
+  "id": "meta-pixel",
+  "name": "Meta Pixel",
+  "category": "Analytics",
+  "description": "Facebook / Meta advertising and conversion pixel",
+  "website": "https://www.facebook.com/business/tools/meta-pixel",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "connect\\.facebook\\.net/.+/fbevents\\.js|facebook\\.com/tr",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Meta Pixel script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "fbq",
+      "confidence": 70,
+      "evidence": "window.fbq present"
+    },
+    {
+      "type": "global",
+      "pattern": "_fbq",
+      "confidence": 55,
+      "evidence": "window._fbq present"
+    },
+    {
+      "type": "html",
+      "pattern": "fbq\\(\\s*['\"]init['\"]|connect\\.facebook\\.net/.+/fbevents\\.js",
+      "flags": "i",
+      "confidence": 65,
+      "evidence": "Meta Pixel init snippet in HTML"
+    },
+    {
+      "type": "cookie",
+      "pattern": "^_fbp$|^_fbc$",
+      "flags": "i",
+      "confidence": 50,
+      "evidence": "Meta Pixel cookie name"
+    }
+  ]
+}

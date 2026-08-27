@@ -1,0 +1,25 @@
+{
+  "id": "jsdelivr",
+  "name": "jsDelivr",
+  "category": "CDN",
+  "description": "Open-source CDN for npm/GitHub packages",
+  "website": "https://www.jsdelivr.com",
+  "visibility": "client",
+  "minConfidence": 70,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "cdn\\.jsdelivr\\.net",
+      "flags": "i",
+      "confidence": 90,
+      "evidence": "jsDelivr script URL"
+    },
+    {
+      "type": "link",
+      "pattern": "cdn\\.jsdelivr\\.net",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "jsDelivr stylesheet/link URL"
+    }
+  ]
+}

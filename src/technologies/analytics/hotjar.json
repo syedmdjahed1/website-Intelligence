@@ -1,0 +1,44 @@
+{
+  "id": "hotjar",
+  "name": "Hotjar",
+  "category": "Analytics",
+  "description": "Heatmaps, recordings, and feedback tools",
+  "website": "https://www.hotjar.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "static\\.hotjar\\.com|script\\.hotjar\\.com|hotjar-",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Hotjar script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "hj",
+      "confidence": 30,
+      "evidence": "window.hj present (weak alone)"
+    },
+    {
+      "type": "global",
+      "pattern": "hjBootstrap",
+      "confidence": 55,
+      "evidence": "window.hjBootstrap present"
+    },
+    {
+      "type": "html",
+      "pattern": "static\\.hotjar\\.com|hj\\(\\s*['\"]identify['\"]|hotjar",
+      "flags": "i",
+      "confidence": 45,
+      "evidence": "Hotjar markers in HTML"
+    },
+    {
+      "type": "cookie",
+      "pattern": "^_hj",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Hotjar cookie name"
+    }
+  ]
+}

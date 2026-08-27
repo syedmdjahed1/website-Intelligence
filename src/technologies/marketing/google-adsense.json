@@ -1,0 +1,31 @@
+{
+  "id": "google-adsense",
+  "name": "Google AdSense",
+  "category": "Marketing & Advertising",
+  "description": "Google advertising network",
+  "website": "https://www.google.com/adsense",
+  "visibility": "client",
+  "minConfidence": 70,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "pagead2\\.googlesyndication\\.com|adsbygoogle",
+      "flags": "i",
+      "confidence": 90,
+      "evidence": "AdSense script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "adsbygoogle",
+      "confidence": 85,
+      "evidence": "window.adsbygoogle present"
+    },
+    {
+      "type": "html",
+      "pattern": "adsbygoogle|googlesyndication\\.com/pagead",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "AdSense markers in HTML"
+    }
+  ]
+}

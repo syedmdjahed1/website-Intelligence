@@ -1,0 +1,31 @@
+{
+  "id": "svelte",
+  "name": "Svelte",
+  "category": "Frontend Framework",
+  "description": "Cybernetically enhanced web apps compiler",
+  "website": "https://svelte.dev",
+  "visibility": "client",
+  "minConfidence": 70,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "svelte(?:@|/)|svelte\\.js",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Svelte script URL"
+    },
+    {
+      "type": "html",
+      "pattern": "class=\"svelte-|svelte-\\w{4,}",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Svelte scoped class markers"
+    },
+    {
+      "type": "global",
+      "pattern": "__svelte",
+      "confidence": 80,
+      "evidence": "Svelte runtime global"
+    }
+  ]
+}

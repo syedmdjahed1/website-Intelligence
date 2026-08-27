@@ -1,0 +1,32 @@
+{
+  "id": "tailwind",
+  "name": "Tailwind CSS",
+  "category": "CSS Framework",
+  "description": "Utility-first CSS framework",
+  "website": "https://tailwindcss.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "cdn\\.tailwindcss\\.com|tailwindcss(?:\\.com)?|tailwind\\.config",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Tailwind CDN or config script"
+    },
+    {
+      "type": "link",
+      "pattern": "tailwind(?:\\.min)?\\.css|tailwindcss",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Tailwind stylesheet URL"
+    },
+    {
+      "type": "html",
+      "pattern": "!--\\s*tailwind|tailwindcss",
+      "flags": "i",
+      "confidence": 40,
+      "evidence": "Tailwind reference in HTML"
+    }
+  ]
+}

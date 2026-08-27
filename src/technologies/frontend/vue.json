@@ -1,0 +1,50 @@
+{
+  "id": "vue",
+  "name": "Vue.js",
+  "category": "Frontend Framework",
+  "description": "Progressive JavaScript framework",
+  "website": "https://vuejs.org",
+  "visibility": "client",
+  "minConfidence": 40,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "vue(?:\\.runtime)?(?:\\.global)?(?:\\.prod|\\.min)?\\.js",
+      "flags": "i",
+      "confidence": 45,
+      "evidence": "Vue script URL detected"
+    },
+    {
+      "type": "script",
+      "pattern": "/vue(?:@|/)|cdn\\.jsdelivr\\.net/npm/vue",
+      "flags": "i",
+      "confidence": 40,
+      "evidence": "Vue package path in script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "Vue",
+      "confidence": 50,
+      "evidence": "window.Vue global"
+    },
+    {
+      "type": "global",
+      "pattern": "__VUE__",
+      "confidence": 55,
+      "evidence": "Vue runtime marker global"
+    },
+    {
+      "type": "selector",
+      "pattern": "[data-v-],[data-server-rendered]",
+      "confidence": 35,
+      "evidence": "Vue scoped attribute markers"
+    },
+    {
+      "type": "html",
+      "pattern": "data-v-[a-f0-9]{5,}|__vue_app__",
+      "flags": "i",
+      "confidence": 40,
+      "evidence": "Vue compilation markers in HTML"
+    }
+  ]
+}
