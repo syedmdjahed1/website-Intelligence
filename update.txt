@@ -1,0 +1,2 @@
+01. Ecommerce, CDN, Sequirity, payment processors, Font Script, Live Chat, Michellaneous, JavaScript Libraries, Webservers, reverse proxies also needed on dashboard
+02. when load the site then automatically load all technology and in the extension icon will showing numbers of loaded technologies count digit. in green color and white text
