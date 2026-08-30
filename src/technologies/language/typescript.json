@@ -1,0 +1,45 @@
+{
+  "id": "typescript",
+  "name": "TypeScript",
+  "category": "Programming Language",
+  "description": "Typed superset of JavaScript (compiled to JS for browsers)",
+  "website": "https://www.typescriptlang.org",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "typescript(?:\\.\\d+(?:\\.\\d+)*)?(?:\\.min)?\\.js|/typescript@|cdn\\.jsdelivr\\.net/npm/typescript|unpkg\\.com/typescript",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "TypeScript compiler script URL"
+    },
+    {
+      "type": "scriptType",
+      "pattern": "text/typescript|application/typescript",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Script tag typed as TypeScript"
+    },
+    {
+      "type": "url",
+      "pattern": "[^\\s\"'<>]\\.tsx?(?:\\?|[\"'\\s]|$)|sourceMappingURL=[^\\s\"']+\\.ts|\\.tsx\\.map|\\.ts\\.map|/src/[^\\s\"']+\\.tsx?",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "TypeScript source or source map reference"
+    },
+    {
+      "type": "html",
+      "pattern": "sourceMappingURL=[^\\s\"']+\\.ts|sources(?:Content)?[^\\]]*\\.tsx?|type=[\"']text/typescript[\"']|typescript(?:\\.\\d+)?(?:\\.min)?\\.js|@typescript-eslint|tsconfig",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "TypeScript markers in HTML or source maps"
+    },
+    {
+      "type": "global",
+      "pattern": "ts",
+      "confidence": 40,
+      "evidence": "window.ts global (weak alone)"
+    }
+  ]
+}

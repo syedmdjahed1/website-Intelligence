@@ -117,7 +117,7 @@ export function analyzeSignals(collection, probeData = {}, defs = [], extras = {
 
   /** @type {AnalysisResult} */
   const result = {
-    version: "0.9.4",
+    version: "0.9.5",
     analyzedAt: new Date().toISOString(),
     phase: "full_mvp_analysis",
     overview,

@@ -1,17 +1,14 @@
 Website Intelligence — update log
-Version: 0.9.4 | Last updated: 2026-08-30
+Version: 0.9.5 | Last updated: 2026-08-30
 
 [DONE] 2026-08-30
 -----------------
-- SaaS, PaaS, IaaS, BaaS categories on dashboard
-- PaaS: Vercel, Netlify, Heroku, Railway, Render, Fly.io, GAE, Azure App Service, AWS Amplify, Cloudflare Pages
-- IaaS: AWS, Google Cloud, Microsoft Azure, DigitalOcean
-- BaaS: Firebase, Supabase
-- SaaS: Salesforce, Calendly, Typeform, Mailchimp, Zapier, Twilio, Notion, Airtable, Slack, SendGrid
-- Header + URL detection for cloud platforms (x-vercel-id, x-nf-request-id, etc.)
+- TypeScript detection added (source maps, .ts/.tsx URLs, compiler script)
+- Angular now implies TypeScript
+- Fixed performance-collector LCP API error
 
 [IMPORTANT] After updating
 --------------------------
 1. chrome://extensions → Reload Website Intelligence
 2. Reload website tab (F5)
-3. Footer must show v0.9.4
+3. Footer must show v0.9.5

@@ -8,7 +8,7 @@ WI.collectors = WI.collectors || {};
 WI.collectors.performance = function collectPerformance() {
   WI.log("Collector", "performance started");
   try {
-    if (typeof performance === "undefined") {
+    if (typeof performance === "undefined" || typeof performance.getEntriesByType !== "function") {
       return { available: false, error: "Performance API unavailable" };
     }
 
@@ -21,11 +21,10 @@ WI.collectors.performance = function collectPerformance() {
 
     var resources = [];
     try {
-      var entries = performance.getEntriesByType("resource") || [];
+      var entries = getEntriesByTypeSafe("resource");
       var max = Math.min(entries.length, 400);
       for (var i = 0; i < max; i++) {
-        var e = entries[i];
-        resources.push(serializeResource(e, hostname));
+        resources.push(serializeResource(entries[i], hostname));
       }
     } catch (err) {
       WI.logError("Collector", "resource timing failed", err);
@@ -33,9 +32,11 @@ WI.collectors.performance = function collectPerformance() {
 
     var navigation = null;
     try {
-      var navs = performance.getEntriesByType("navigation");
-      if (navs && navs[0]) {
+      var navs = getEntriesByTypeSafe("navigation");
+      if (navs.length) {
         navigation = serializeNavigation(navs[0]);
+      } else if (performance.timing) {
+        navigation = serializeLegacyNavigation(performance.timing);
       }
     } catch (err2) {
       WI.logError("Collector", "navigation timing failed", err2);
@@ -43,28 +44,15 @@ WI.collectors.performance = function collectPerformance() {
 
     var paint = {};
     try {
-      var paints = performance.getEntriesByType("paint") || [];
+      var paints = getEntriesByTypeSafe("paint");
       for (var p = 0; p < paints.length; p++) {
         paint[paints[p].name] = round(paints[p].startTime);
       }
     } catch (err3) {
-      /* optional */
+      WI.logError("Collector", "paint timing failed", err3);
     }
 
-    var lcp = null;
-    try {
-      var lcps = performance.getEntriesByType("largest-contentful-paint") || [];
-      if (lcps.length) {
-        var last = lcps[lcps.length - 1];
-        lcp = {
-          startTime: round(last.startTime),
-          size: last.size || 0,
-          url: last.url || "",
-        };
-      }
-    } catch (err4) {
-      /* optional / may require observation earlier */
-    }
+    var lcp = readLcpEntry();
 
     var mem = null;
     try {
@@ -100,6 +88,44 @@ WI.collectors.performance = function collectPerformance() {
     };
   }
 };
+
+function supportsEntryType(type) {
+  try {
+    if (typeof PerformanceObserver === "undefined") return true;
+    if (!PerformanceObserver.supportedEntryTypes) return true;
+    return PerformanceObserver.supportedEntryTypes.indexOf(type) !== -1;
+  } catch (e) {
+    return false;
+  }
+}
+
+function getEntriesByTypeSafe(type) {
+  try {
+    if (!supportsEntryType(type)) return [];
+    var entries = performance.getEntriesByType(type);
+    return entries && entries.length ? entries : [];
+  } catch (err) {
+    WI.logError("Collector", "getEntriesByType failed: " + type, err);
+    return [];
+  }
+}
+
+function readLcpEntry() {
+  try {
+    if (!supportsEntryType("largest-contentful-paint")) return null;
+    var lcps = getEntriesByTypeSafe("largest-contentful-paint");
+    if (!lcps.length) return null;
+    var last = lcps[lcps.length - 1];
+    return {
+      startTime: round(last.startTime),
+      size: last.size || 0,
+      url: String(last.url || "").slice(0, 300),
+    };
+  } catch (err) {
+    WI.logError("Collector", "lcp read failed", err);
+    return null;
+  }
+}
 
 function round(n) {
   return Math.round((Number(n) || 0) * 100) / 100;
@@ -141,12 +167,31 @@ function serializeNavigation(n) {
     startTime: round(n.startTime),
     duration: round(n.duration),
     redirectCount: n.redirectCount || 0,
-    // High-resolution timestamps relative to navigation start
     ttfb: round((n.responseStart || 0) - (n.requestStart || 0)),
     domContentLoaded: round(n.domContentLoadedEventEnd || 0),
     loadEventEnd: round(n.loadEventEnd || 0),
     domInteractive: round(n.domInteractive || 0),
     responseEnd: round(n.responseEnd || 0),
     nextHopProtocol: n.nextHopProtocol || "",
+  };
+}
+
+function serializeLegacyNavigation(timing) {
+  if (!timing) return null;
+  var navStart = timing.navigationStart || 0;
+  return {
+    type: "navigate",
+    transferSize: 0,
+    encodedBodySize: 0,
+    decodedBodySize: 0,
+    startTime: 0,
+    duration: round((timing.loadEventEnd || 0) - navStart),
+    redirectCount: performance.navigation ? performance.navigation.redirectCount || 0 : 0,
+    ttfb: round((timing.responseStart || 0) - (timing.requestStart || 0)),
+    domContentLoaded: round((timing.domContentLoadedEventEnd || 0) - navStart),
+    loadEventEnd: round((timing.loadEventEnd || 0) - navStart),
+    domInteractive: round((timing.domInteractive || 0) - navStart),
+    responseEnd: round((timing.responseEnd || 0) - navStart),
+    nextHopProtocol: "",
   };
 }

@@ -1,5 +1,5 @@
 {
-  "version": "0.9.4",
+  "version": "0.9.5",
   "technologies": [
     "frontend/react.json",
     "frontend/vue.json",
@@ -37,6 +37,7 @@
     "backend/laravel.json",
     "language/php.json",
     "language/nodejs.json",
+    "language/typescript.json",
     "infrastructure/cloudflare.json",
     "paas/vercel.json",
     "paas/netlify.json",

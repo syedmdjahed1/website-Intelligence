@@ -27,6 +27,7 @@ function toRegex(pattern, flags = "i") {
  */
 export function buildCorpus(signals, probes = {}) {
   const scripts = (signals.scripts?.external || []).map((s) => s.src || "");
+  const scriptTypes = (signals.scripts?.external || []).map((s) => s.type || "").filter(Boolean);
   const links = (signals.links?.items || []).map((l) => `${l.rel || ""} ${l.href || ""}`);
   const metas = (signals.meta?.items || []).map((m) => ({
     name: (m.name || "").toLowerCase(),
@@ -36,17 +37,21 @@ export function buildCorpus(signals, probes = {}) {
   const htmlSample = signals.html?.sample || "";
   const iframes = signals.dom?.iframeSrcs || [];
   const classHints = signals.dom?.classHints || [];
+  const perfUrls = (signals.performance?.resources || []).map((r) => r.name || "").filter(Boolean);
   const urlPool = [
     ...(signals.html?.urlPool || []),
     signals.page?.href || "",
     signals.page?.pathname || "",
     ...scripts,
+    ...scriptTypes,
     ...links,
     ...iframes,
+    ...perfUrls,
   ].filter(Boolean);
 
   return {
     scripts,
+    scriptTypes,
     links,
     metas,
     cookies,
@@ -143,6 +148,12 @@ function testPattern(pattern, corpus) {
     const re = toRegex(pattern.pattern, pattern.flags);
     if (!re) return false;
     return corpus.scripts.some((src) => re.test(src));
+  }
+
+  if (type === "scriptType") {
+    const re = toRegex(pattern.pattern, pattern.flags);
+    if (!re) return false;
+    return (corpus.scriptTypes || []).some((t) => re.test(t));
   }
 
   if (type === "link") {
