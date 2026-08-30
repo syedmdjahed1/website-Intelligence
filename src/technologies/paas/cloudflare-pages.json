@@ -1,0 +1,25 @@
+{
+  "id": "cloudflare-pages",
+  "name": "Cloudflare Pages",
+  "category": "PaaS",
+  "description": "Cloudflare JAMstack deployment platform",
+  "website": "https://pages.cloudflare.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "url",
+      "pattern": "pages\\.dev",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Cloudflare Pages URL"
+    },
+    {
+      "type": "html",
+      "pattern": "pages\\.dev|cf-pages",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Cloudflare Pages markers"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "netlify",
+  "name": "Netlify",
+  "category": "PaaS",
+  "description": "Web development platform and hosting",
+  "website": "https://www.netlify.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "url",
+      "pattern": "netlify\\.app|netlify\\.com|netlifyusercontent\\.com",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Netlify deployment URL"
+    },
+    {
+      "type": "html",
+      "pattern": "netlify|x-nf-request-id|data-netlify",
+      "flags": "i",
+      "confidence": 65,
+      "evidence": "Netlify markers in HTML"
+    },
+    {
+      "type": "script",
+      "pattern": "netlify|identity\\.netlify",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Netlify script reference"
+    }
+  ]
+}

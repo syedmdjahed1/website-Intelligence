@@ -1,0 +1,25 @@
+{
+  "id": "microsoft-azure",
+  "name": "Microsoft Azure",
+  "category": "IaaS",
+  "description": "Microsoft cloud infrastructure",
+  "website": "https://azure.microsoft.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "url",
+      "pattern": "azure\\.com|azureedge\\.net|blob\\.core\\.windows\\.net|azurewebsites\\.net",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Azure resource URL"
+    },
+    {
+      "type": "html",
+      "pattern": "x-azure-ref|x-ms-request-id|azure\\.com|blob\\.core\\.windows\\.net",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Azure markers in HTML/headers"
+    }
+  ]
+}

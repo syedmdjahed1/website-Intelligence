@@ -1,0 +1,32 @@
+{
+  "id": "calendly",
+  "name": "Calendly",
+  "category": "SaaS",
+  "description": "Scheduling and appointment booking",
+  "website": "https://calendly.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "assets\\.calendly\\.com|calendly\\.com/assets",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "Calendly widget script"
+    },
+    {
+      "type": "iframe",
+      "pattern": "calendly\\.com",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Calendly embed iframe"
+    },
+    {
+      "type": "html",
+      "pattern": "calendly\\.com|Calendly\\.init",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Calendly markers in HTML"
+    }
+  ]
+}

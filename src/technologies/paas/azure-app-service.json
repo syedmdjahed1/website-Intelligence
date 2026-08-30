@@ -1,0 +1,25 @@
+{
+  "id": "azure-app-service",
+  "name": "Azure App Service",
+  "category": "PaaS",
+  "description": "Microsoft Azure managed web apps",
+  "website": "https://azure.microsoft.com/products/app-service",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "url",
+      "pattern": "azurewebsites\\.net|azurestaticapps\\.net|azureedge\\.net",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "Azure App Service URL"
+    },
+    {
+      "type": "html",
+      "pattern": "azurewebsites\\.net|x-azure-ref|x-ms-request-id",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Azure App Service markers"
+    }
+  ]
+}

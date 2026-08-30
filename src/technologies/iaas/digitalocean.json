@@ -1,0 +1,25 @@
+{
+  "id": "digitalocean",
+  "name": "DigitalOcean",
+  "category": "IaaS",
+  "description": "Cloud infrastructure provider",
+  "website": "https://www.digitalocean.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "url",
+      "pattern": "digitaloceanspaces\\.com|ondigitalocean\\.app|digitalocean\\.com",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "DigitalOcean resource URL"
+    },
+    {
+      "type": "html",
+      "pattern": "digitaloceanspaces\\.com|ondigitalocean\\.app",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "DigitalOcean markers"
+    }
+  ]
+}

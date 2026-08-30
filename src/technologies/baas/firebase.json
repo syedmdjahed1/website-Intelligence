@@ -1,0 +1,31 @@
+{
+  "id": "firebase",
+  "name": "Firebase",
+  "category": "BaaS",
+  "description": "Google backend-as-a-service platform",
+  "website": "https://firebase.google.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "firebase(?:app)?\\.com|firebaseio\\.com|gstatic\\.com/firebasejs",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Firebase SDK script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "firebase",
+      "confidence": 70,
+      "evidence": "window.firebase global"
+    },
+    {
+      "type": "html",
+      "pattern": "firebase(?:app)?\\.com|firebaseConfig|initializeApp\\(",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Firebase markers in HTML"
+    }
+  ]
+}

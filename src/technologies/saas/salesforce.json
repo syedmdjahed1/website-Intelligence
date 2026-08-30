@@ -1,0 +1,32 @@
+{
+  "id": "salesforce",
+  "name": "Salesforce",
+  "category": "SaaS",
+  "description": "CRM and enterprise cloud software",
+  "website": "https://www.salesforce.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "salesforce\\.com|force\\.com|salesforceliveagent",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Salesforce script URL"
+    },
+    {
+      "type": "iframe",
+      "pattern": "salesforce\\.com|force\\.com",
+      "flags": "i",
+      "confidence": 65,
+      "evidence": "Salesforce iframe"
+    },
+    {
+      "type": "html",
+      "pattern": "salesforce|force\\.com|liveagent",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Salesforce markers in HTML"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "slack",
+  "name": "Slack",
+  "category": "SaaS",
+  "description": "Team messaging and collaboration",
+  "website": "https://slack.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "slack-edge\\.com|slack\\.com/api",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Slack widget script"
+    },
+    {
+      "type": "html",
+      "pattern": "slack\\.com|slack-edge\\.com|data-slack-app-id",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Slack markers in HTML"
+    }
+  ]
+}

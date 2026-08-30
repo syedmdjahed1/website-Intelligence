@@ -64,7 +64,10 @@ export function analyzeSignals(collection, probeData = {}, defs = [], extras = {
   });
   const performance = analyzePerformance(signals.performance || {});
 
-  technologies = enrichProtocolAndHeaders(technologies, extras, performance);
+  technologies = enrichProtocolAndHeaders(technologies, {
+    ...extras,
+    pageUrl: page.href || "",
+  }, performance);
   const technologiesByCategory = groupByCategory(technologies);
 
   const httpOnlyCount = Array.isArray(extras.cookieSecurity?.cookies)
@@ -114,7 +117,7 @@ export function analyzeSignals(collection, probeData = {}, defs = [], extras = {
 
   /** @type {AnalysisResult} */
   const result = {
-    version: "0.9.3",
+    version: "0.9.4",
     analyzedAt: new Date().toISOString(),
     phase: "full_mvp_analysis",
     overview,

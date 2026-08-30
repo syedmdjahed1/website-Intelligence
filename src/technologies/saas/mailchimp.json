@@ -1,0 +1,32 @@
+{
+  "id": "mailchimp",
+  "name": "Mailchimp",
+  "category": "SaaS",
+  "description": "Email marketing platform",
+  "website": "https://mailchimp.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "chimpstatic\\.com|list-manage\\.com|mailchimp",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Mailchimp script URL"
+    },
+    {
+      "type": "html",
+      "pattern": "mailchimp|list-manage\\.com|mc-embedded-subscribe",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Mailchimp form markers"
+    },
+    {
+      "type": "iframe",
+      "pattern": "list-manage\\.com",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Mailchimp embed iframe"
+    }
+  ]
+}

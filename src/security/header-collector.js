@@ -25,6 +25,19 @@ const INTERESTING = [
   "x-varnish",
   "x-served-by",
   "x-litespeed-cache",
+  "x-vercel-id",
+  "x-vercel-cache",
+  "x-vercel-mitigated",
+  "x-nf-request-id",
+  "x-render-origin-server",
+  "fly-request-id",
+  "x-cloud-trace-context",
+  "x-azure-ref",
+  "x-ms-request-id",
+  "x-amz-request-id",
+  "x-amz-apigw-id",
+  "x-amz-cf-id",
+  "cf-pages",
 ];
 
 /**

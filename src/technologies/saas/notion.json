@@ -1,0 +1,32 @@
+{
+  "id": "notion",
+  "name": "Notion",
+  "category": "SaaS",
+  "description": "Collaborative workspace and docs",
+  "website": "https://www.notion.so",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "iframe",
+      "pattern": "notion\\.so|notion\\.site",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Notion embed iframe"
+    },
+    {
+      "type": "script",
+      "pattern": "notion\\.so|notion\\.site",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Notion embed script"
+    },
+    {
+      "type": "html",
+      "pattern": "notion\\.so|notion\\.site|notion-embed",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Notion markers in HTML"
+    }
+  ]
+}

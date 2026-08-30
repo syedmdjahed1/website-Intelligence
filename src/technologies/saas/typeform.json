@@ -1,0 +1,32 @@
+{
+  "id": "typeform",
+  "name": "Typeform",
+  "category": "SaaS",
+  "description": "Online forms and surveys",
+  "website": "https://www.typeform.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "embed\\.typeform\\.com|typeform\\.com/next",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "Typeform embed script"
+    },
+    {
+      "type": "iframe",
+      "pattern": "typeform\\.com",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Typeform iframe"
+    },
+    {
+      "type": "html",
+      "pattern": "typeform\\.com|data-tf-widget",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Typeform markers in HTML"
+    }
+  ]
+}

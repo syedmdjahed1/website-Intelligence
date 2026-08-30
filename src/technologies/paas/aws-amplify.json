@@ -1,0 +1,32 @@
+{
+  "id": "aws-amplify",
+  "name": "AWS Amplify",
+  "category": "PaaS",
+  "description": "AWS full-stack web and mobile platform",
+  "website": "https://aws.amazon.com/amplify",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "url",
+      "pattern": "amplifyapp\\.com|awsamplify\\.com",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "AWS Amplify hosting URL"
+    },
+    {
+      "type": "script",
+      "pattern": "aws-amplify|amplifyapp\\.com",
+      "flags": "i",
+      "confidence": 65,
+      "evidence": "AWS Amplify script reference"
+    },
+    {
+      "type": "html",
+      "pattern": "aws-amplify|amplifyapp\\.com",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "AWS Amplify markers in HTML"
+    }
+  ]
+}

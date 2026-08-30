@@ -1,0 +1,25 @@
+{
+  "id": "fly-io",
+  "name": "Fly.io",
+  "category": "PaaS",
+  "description": "Global application platform",
+  "website": "https://fly.io",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "url",
+      "pattern": "fly\\.dev|fly\\.io",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "Fly.io deployment URL"
+    },
+    {
+      "type": "html",
+      "pattern": "fly\\.dev|fly-request-id",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Fly.io markers in HTML"
+    }
+  ]
+}

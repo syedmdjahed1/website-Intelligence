@@ -1,0 +1,25 @@
+{
+  "id": "zapier",
+  "name": "Zapier",
+  "category": "SaaS",
+  "description": "Workflow automation platform",
+  "website": "https://zapier.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "zapier\\.com|zapier\\.com/apps",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Zapier script reference"
+    },
+    {
+      "type": "html",
+      "pattern": "zapier\\.com|zapier-interact",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Zapier markers in HTML"
+    }
+  ]
+}

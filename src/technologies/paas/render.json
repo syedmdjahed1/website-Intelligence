@@ -1,0 +1,25 @@
+{
+  "id": "render",
+  "name": "Render",
+  "category": "PaaS",
+  "description": "Unified cloud platform for apps and sites",
+  "website": "https://render.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "url",
+      "pattern": "onrender\\.com|render\\.com",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "Render deployment URL"
+    },
+    {
+      "type": "html",
+      "pattern": "onrender\\.com|x-render-origin-server",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Render markers in HTML"
+    }
+  ]
+}

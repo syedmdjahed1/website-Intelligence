@@ -1,0 +1,25 @@
+{
+  "id": "railway",
+  "name": "Railway",
+  "category": "PaaS",
+  "description": "Modern app deployment platform",
+  "website": "https://railway.app",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "url",
+      "pattern": "railway\\.app|up\\.railway\\.app",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "Railway deployment URL"
+    },
+    {
+      "type": "html",
+      "pattern": "railway\\.app",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Railway markers in HTML"
+    }
+  ]
+}

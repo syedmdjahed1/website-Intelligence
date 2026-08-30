@@ -1,0 +1,25 @@
+{
+  "id": "google-app-engine",
+  "name": "Google App Engine",
+  "category": "PaaS",
+  "description": "Google Cloud managed application platform",
+  "website": "https://cloud.google.com/appengine",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "url",
+      "pattern": "appspot\\.com|googleusercontent\\.com",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Google App Engine URL"
+    },
+    {
+      "type": "html",
+      "pattern": "appspot\\.com|x-cloud-trace-context|Google Frontend",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Google App Engine markers"
+    }
+  ]
+}

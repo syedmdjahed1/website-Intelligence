@@ -1,18 +1,17 @@
 Website Intelligence — update log
-Version: 0.9.3 | Last updated: 2026-08-30
+Version: 0.9.4 | Last updated: 2026-08-30
 
 [DONE] 2026-08-30
 -----------------
-- UI / CSS Framework category (matches Detechtor)
-- Fonts & Icons category for Google Fonts, Font Awesome, Adobe Fonts
-- New domClass pattern — detects Tailwind/Bootstrap from CSS classes
-- Compiled Tailwind detection (production builds without CDN)
-- Bootstrap, Bulma, Material UI, daisyUI, Animate.css added
-- Improved Font Awesome, Open Graph, Twitter Cards patterns
-- Larger DOM class sampling (500 elements, 150 classes)
+- SaaS, PaaS, IaaS, BaaS categories on dashboard
+- PaaS: Vercel, Netlify, Heroku, Railway, Render, Fly.io, GAE, Azure App Service, AWS Amplify, Cloudflare Pages
+- IaaS: AWS, Google Cloud, Microsoft Azure, DigitalOcean
+- BaaS: Firebase, Supabase
+- SaaS: Salesforce, Calendly, Typeform, Mailchimp, Zapier, Twilio, Notion, Airtable, Slack, SendGrid
+- Header + URL detection for cloud platforms (x-vercel-id, x-nf-request-id, etc.)
 
 [IMPORTANT] After updating
 --------------------------
 1. chrome://extensions → Reload Website Intelligence
 2. Reload website tab (F5)
-3. Footer must show v0.9.3
+3. Footer must show v0.9.4

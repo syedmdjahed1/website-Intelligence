@@ -1,0 +1,25 @@
+{
+  "id": "google-cloud",
+  "name": "Google Cloud",
+  "category": "IaaS",
+  "description": "Google Cloud Platform infrastructure",
+  "website": "https://cloud.google.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "url",
+      "pattern": "storage\\.googleapis\\.com|cloudfunctions\\.net|run\\.app|pkg\\.dev|appspot\\.com",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Google Cloud resource URL"
+    },
+    {
+      "type": "html",
+      "pattern": "storage\\.googleapis\\.com|cloudfunctions\\.net|\\.run\\.app",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Google Cloud markers"
+    }
+  ]
+}

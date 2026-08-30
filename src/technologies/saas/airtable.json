@@ -1,0 +1,25 @@
+{
+  "id": "airtable",
+  "name": "Airtable",
+  "category": "SaaS",
+  "description": "Cloud spreadsheet-database platform",
+  "website": "https://www.airtable.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "iframe",
+      "pattern": "airtable\\.com/embed",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "Airtable embed iframe"
+    },
+    {
+      "type": "html",
+      "pattern": "airtable\\.com/embed|airtable-embed",
+      "flags": "i",
+      "confidence": 65,
+      "evidence": "Airtable markers in HTML"
+    }
+  ]
+}

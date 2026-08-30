@@ -1,0 +1,32 @@
+{
+  "id": "vercel",
+  "name": "Vercel",
+  "category": "PaaS",
+  "description": "Frontend cloud platform for deployments",
+  "website": "https://vercel.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "url",
+      "pattern": "vercel\\.app|\\.vercel\\.com|/_vercel/",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Vercel deployment URL"
+    },
+    {
+      "type": "html",
+      "pattern": "/_vercel/|x-vercel-id|vercel\\.live",
+      "flags": "i",
+      "confidence": 65,
+      "evidence": "Vercel markers in HTML"
+    },
+    {
+      "type": "script",
+      "pattern": "/_vercel/|vercel\\.com",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Vercel script reference"
+    }
+  ]
+}

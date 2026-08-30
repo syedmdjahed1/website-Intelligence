@@ -2,7 +2,7 @@
 
 Chrome Extension (Manifest V3) that analyzes the currently open website for technology stack and other publicly observable characteristics.
 
-**Version:** 0.9.3 (UI/CSS class detection + expanded frameworks)
+**Version:** 0.9.4 (SaaS / PaaS / IaaS / BaaS cloud platform detection)
 
 ## UI
 

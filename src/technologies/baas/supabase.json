@@ -1,0 +1,38 @@
+{
+  "id": "supabase",
+  "name": "Supabase",
+  "category": "BaaS",
+  "description": "Open-source Firebase alternative",
+  "website": "https://supabase.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "supabase\\.co|@supabase/",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Supabase SDK script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "supabase",
+      "confidence": 65,
+      "evidence": "window.supabase global"
+    },
+    {
+      "type": "html",
+      "pattern": "supabase\\.co|createClient\\(|@supabase/",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Supabase markers in HTML"
+    },
+    {
+      "type": "url",
+      "pattern": "supabase\\.co",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Supabase API URL"
+    }
+  ]
+}

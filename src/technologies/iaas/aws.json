@@ -1,0 +1,32 @@
+{
+  "id": "aws",
+  "name": "Amazon Web Services",
+  "category": "IaaS",
+  "description": "Amazon cloud infrastructure",
+  "website": "https://aws.amazon.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "url",
+      "pattern": "amazonaws\\.com|awsstatic\\.com|aws\\.dev",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "AWS resource URL"
+    },
+    {
+      "type": "html",
+      "pattern": "amazonaws\\.com|x-amz-request-id|x-amz-apigw-id|x-amz-cf-id",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "AWS markers in HTML/headers"
+    },
+    {
+      "type": "script",
+      "pattern": "amazonaws\\.com|aws-sdk",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "AWS script reference"
+    }
+  ]
+}

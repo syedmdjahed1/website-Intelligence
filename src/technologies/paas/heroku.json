@@ -1,0 +1,25 @@
+{
+  "id": "heroku",
+  "name": "Heroku",
+  "category": "PaaS",
+  "description": "Cloud application platform",
+  "website": "https://www.heroku.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "url",
+      "pattern": "herokuapp\\.com|herokudns\\.com|herokussl\\.com",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "Heroku app URL"
+    },
+    {
+      "type": "html",
+      "pattern": "herokuapp\\.com|Via:\\s*\\d+\\.heroku",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Heroku markers in HTML"
+    }
+  ]
+}

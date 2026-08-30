@@ -1,0 +1,25 @@
+{
+  "id": "sendgrid",
+  "name": "SendGrid",
+  "category": "SaaS",
+  "description": "Email delivery platform",
+  "website": "https://sendgrid.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "sendgrid\\.com|sendgrid\\.net",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "SendGrid script reference"
+    },
+    {
+      "type": "html",
+      "pattern": "sendgrid\\.com|sendgrid\\.net",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "SendGrid markers in HTML"
+    }
+  ]
+}

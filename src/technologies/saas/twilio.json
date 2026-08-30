@@ -1,0 +1,31 @@
+{
+  "id": "twilio",
+  "name": "Twilio",
+  "category": "SaaS",
+  "description": "Cloud communications platform",
+  "website": "https://www.twilio.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "twilio\\.com|twiliocdn\\.com|media\\.twiliocdn\\.com",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Twilio script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "Twilio",
+      "confidence": 65,
+      "evidence": "window.Twilio global"
+    },
+    {
+      "type": "html",
+      "pattern": "twilio\\.com|twiliocdn\\.com",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Twilio markers in HTML"
+    }
+  ]
+}
