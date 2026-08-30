@@ -1,0 +1,32 @@
+{
+  "id": "squarespace",
+  "name": "Squarespace",
+  "category": "CMS",
+  "description": "Website builder and hosting platform",
+  "website": "https://www.squarespace.com",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "static1\\.squarespace\\.com|squarespace-cdn\\.com",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Squarespace CDN script"
+    },
+    {
+      "type": "html",
+      "pattern": "static1\\.squarespace\\.com|Squarespace\\.Constants|sqsp",
+      "flags": "i",
+      "confidence": 65,
+      "evidence": "Squarespace markers in HTML"
+    },
+    {
+      "type": "cookie",
+      "pattern": "^SS_(?:ANON|ID|CVT|MID|PID|RT)$",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Squarespace cookie name"
+    }
+  ]
+}

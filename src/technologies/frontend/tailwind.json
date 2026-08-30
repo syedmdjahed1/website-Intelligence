@@ -1,32 +1,47 @@
 {
   "id": "tailwind",
   "name": "Tailwind CSS",
-  "category": "CSS Framework",
+  "category": "UI / CSS Framework",
   "description": "Utility-first CSS framework",
   "website": "https://tailwindcss.com",
   "visibility": "client",
-  "minConfidence": 45,
+  "minConfidence": 50,
   "patterns": [
     {
       "type": "script",
       "pattern": "cdn\\.tailwindcss\\.com|tailwindcss(?:\\.com)?|tailwind\\.config",
       "flags": "i",
-      "confidence": 70,
+      "confidence": 75,
       "evidence": "Tailwind CDN or config script"
     },
     {
       "type": "link",
-      "pattern": "tailwind(?:\\.min)?\\.css|tailwindcss",
+      "pattern": "tailwind(?:\\.min)?\\.css|tailwindcss|/_next/static/css/",
       "flags": "i",
-      "confidence": 60,
+      "confidence": 65,
       "evidence": "Tailwind stylesheet URL"
     },
     {
-      "type": "html",
-      "pattern": "!--\\s*tailwind|tailwindcss",
+      "type": "url",
+      "pattern": "tailwindcss|tailwind\\.config",
       "flags": "i",
-      "confidence": 40,
-      "evidence": "Tailwind reference in HTML"
+      "confidence": 55,
+      "evidence": "Tailwind asset reference"
+    },
+    {
+      "type": "html",
+      "pattern": "--tw-(?:border|ring|shadow|blur|brightness|contrast|grayscale|hue-rotate|invert|saturate|sepia|backdrop)|@tailwind\\s+(?:base|components|utilities)",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Tailwind CSS variables or directives"
+    },
+    {
+      "type": "domClass",
+      "pattern": "^(?:flex|grid|inline-flex|inline-grid|hidden|block|container|mx-auto|rounded-(?:none|sm|md|lg|xl|2xl|3xl|full)|shadow-(?:sm|md|lg|xl|2xl|none)|text-(?:xs|sm|base|lg|xl|2xl|3xl|4xl)|font-(?:bold|semibold|medium|normal|light|thin|extrabold)|bg-(?:\\w+)-(?:50|100|200|300|400|500|600|700|800|900|950)|text-(?:\\w+)-(?:50|100|200|300|400|500|600|700|800|900|950)|px-(?:\\d+|\\[)|py-(?:\\d+|\\[)|pt-(?:\\d+|\\[)|pb-(?:\\d+|\\[)|mt-(?:\\d+|\\[)|mb-(?:\\d+|\\[)|gap-(?:\\d+|\\[)|w-full|h-full|min-h-screen|max-w-(?:\\w+|\\[)|items-(?:start|center|end|baseline|stretch)|justify-(?:start|center|end|between|around|evenly)|space-[xy]-(?:\\d+|\\[)|border-(?:\\w+)-(?:\\d+|\\[)|md:|lg:|xl:|2xl:|sm:|hover:|focus:|dark:)",
+      "flags": "i",
+      "minMatches": 4,
+      "confidence": 65,
+      "evidence": "Tailwind utility classes in DOM"
     }
   ]
 }

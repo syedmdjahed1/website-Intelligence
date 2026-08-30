@@ -1,0 +1,32 @@
+{
+  "id": "doubleclick",
+  "name": "DoubleClick",
+  "category": "Marketing & Advertising",
+  "description": "Google ad serving / marketing platform",
+  "website": "https://marketingplatform.google.com",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "doubleclick\\.net|googlesyndication\\.com/pagead",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "DoubleClick script URL"
+    },
+    {
+      "type": "iframe",
+      "pattern": "doubleclick\\.net",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "DoubleClick iframe"
+    },
+    {
+      "type": "html",
+      "pattern": "doubleclick\\.net|googlesyndication\\.com",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "DoubleClick markers in HTML"
+    }
+  ]
+}

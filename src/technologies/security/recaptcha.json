@@ -1,0 +1,38 @@
+{
+  "id": "recaptcha",
+  "name": "reCAPTCHA",
+  "category": "Security",
+  "description": "Google reCAPTCHA bot protection",
+  "website": "https://www.google.com/recaptcha",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "google\\.com/recaptcha|gstatic\\.com/recaptcha",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "reCAPTCHA script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "grecaptcha",
+      "confidence": 75,
+      "evidence": "window.grecaptcha global"
+    },
+    {
+      "type": "html",
+      "pattern": "g-recaptcha|grecaptcha|google\\.com/recaptcha",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "reCAPTCHA markers in HTML"
+    },
+    {
+      "type": "iframe",
+      "pattern": "google\\.com/recaptcha",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "reCAPTCHA iframe"
+    }
+  ]
+}

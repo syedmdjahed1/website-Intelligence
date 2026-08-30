@@ -19,6 +19,12 @@ const INTERESTING = [
   "cross-origin-resource-policy",
   "cross-origin-embedder-policy",
   "x-xss-protection",
+  "server",
+  "via",
+  "x-powered-by",
+  "x-varnish",
+  "x-served-by",
+  "x-litespeed-cache",
 ];
 
 /**

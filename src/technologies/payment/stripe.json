@@ -1,0 +1,38 @@
+{
+  "id": "stripe",
+  "name": "Stripe",
+  "category": "Payment Processor",
+  "description": "Online payment processing platform",
+  "website": "https://stripe.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "js\\.stripe\\.com|checkout\\.stripe\\.com",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Stripe script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "Stripe",
+      "confidence": 70,
+      "evidence": "window.Stripe global"
+    },
+    {
+      "type": "html",
+      "pattern": "js\\.stripe\\.com|Stripe\\(|stripe\\.com/v3",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Stripe markers in HTML"
+    },
+    {
+      "type": "iframe",
+      "pattern": "js\\.stripe\\.com|hooks\\.stripe\\.com",
+      "flags": "i",
+      "confidence": 50,
+      "evidence": "Stripe iframe"
+    }
+  ]
+}

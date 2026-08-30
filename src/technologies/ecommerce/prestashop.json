@@ -1,0 +1,40 @@
+{
+  "id": "prestashop",
+  "name": "PrestaShop",
+  "category": "Ecommerce",
+  "description": "Open-source ecommerce platform",
+  "website": "https://www.prestashop.com",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "meta",
+      "name": "generator",
+      "pattern": "PrestaShop",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "PrestaShop generator meta"
+    },
+    {
+      "type": "script",
+      "pattern": "/modules/|prestashop|PrestaShop",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "PrestaShop asset path"
+    },
+    {
+      "type": "html",
+      "pattern": "prestashop|PrestaShop|/modules/",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "PrestaShop markers in HTML"
+    },
+    {
+      "type": "cookie",
+      "pattern": "^PrestaShop-",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "PrestaShop cookie name"
+    }
+  ]
+}

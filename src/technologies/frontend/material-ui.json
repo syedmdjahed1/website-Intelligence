@@ -1,0 +1,40 @@
+{
+  "id": "material-ui",
+  "name": "Material UI",
+  "category": "UI / CSS Framework",
+  "description": "React component library implementing Material Design",
+  "website": "https://mui.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "@mui/|material-ui|mui\\.com",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Material UI script URL"
+    },
+    {
+      "type": "link",
+      "pattern": "fonts\\.googleapis\\.com/icon\\?family=Material\\+Icons|material-icons",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Material Icons stylesheet"
+    },
+    {
+      "type": "domClass",
+      "pattern": "^(?:Mui\\w+|mui-\\w+|material-icons|mdc-\\w+)$",
+      "flags": "i",
+      "minMatches": 2,
+      "confidence": 65,
+      "evidence": "Material UI class names in DOM"
+    },
+    {
+      "type": "html",
+      "pattern": "Mui[A-Z]\\w+-|@mui/|material-ui",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Material UI markers in HTML"
+    }
+  ]
+}

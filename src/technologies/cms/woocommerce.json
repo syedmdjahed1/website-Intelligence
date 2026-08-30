@@ -1,7 +1,7 @@
 {
   "id": "woocommerce",
   "name": "WooCommerce",
-  "category": "CMS",
+  "category": "Ecommerce",
   "description": "WordPress e-commerce plugin",
   "website": "https://woocommerce.com",
   "visibility": "client",

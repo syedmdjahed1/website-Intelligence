@@ -16,6 +16,13 @@ WI.collectors.links = function collectLinks() {
       var rel = (el.getAttribute("rel") || "").toLowerCase();
       var href = el.getAttribute("href") || "";
       if (!rel && !href) continue;
+      if (href) {
+        try {
+          href = new URL(href, location.href).href;
+        } catch (e) {
+          /* keep original */
+        }
+      }
       if (rel.indexOf("stylesheet") !== -1) stylesheetCount += 1;
       items.push({
         rel: rel,

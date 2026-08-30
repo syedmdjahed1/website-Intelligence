@@ -1,0 +1,33 @@
+{
+  "id": "ghost",
+  "name": "Ghost",
+  "category": "CMS",
+  "description": "Publishing and blogging platform",
+  "website": "https://ghost.org",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "meta",
+      "name": "generator",
+      "pattern": "Ghost",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "Ghost generator meta"
+    },
+    {
+      "type": "html",
+      "pattern": "ghost\\.io|/ghost/api/|content=\"Ghost",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Ghost markers in HTML"
+    },
+    {
+      "type": "script",
+      "pattern": "/ghost/api/|ghost\\.io",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Ghost script URL"
+    }
+  ]
+}

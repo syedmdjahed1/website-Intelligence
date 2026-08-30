@@ -1,0 +1,31 @@
+{
+  "id": "braintree",
+  "name": "Braintree",
+  "category": "Payment Processor",
+  "description": "PayPal-owned payment gateway",
+  "website": "https://www.braintreepayments.com",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "js\\.braintreegateway\\.com",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Braintree script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "braintree",
+      "confidence": 70,
+      "evidence": "window.braintree global"
+    },
+    {
+      "type": "html",
+      "pattern": "braintreegateway\\.com|braintree\\.client",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Braintree markers in HTML"
+    }
+  ]
+}

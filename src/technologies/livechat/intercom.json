@@ -1,0 +1,38 @@
+{
+  "id": "intercom",
+  "name": "Intercom",
+  "category": "Live Chat",
+  "description": "Customer messaging and live chat",
+  "website": "https://www.intercom.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "widget\\.intercom\\.io|js\\.intercomcdn\\.com",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Intercom script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "Intercom",
+      "confidence": 70,
+      "evidence": "window.Intercom global"
+    },
+    {
+      "type": "html",
+      "pattern": "intercom|Intercom\\(",
+      "flags": "i",
+      "confidence": 50,
+      "evidence": "Intercom markers in HTML"
+    },
+    {
+      "type": "cookie",
+      "pattern": "^intercom-",
+      "flags": "i",
+      "confidence": 50,
+      "evidence": "Intercom cookie name"
+    }
+  ]
+}

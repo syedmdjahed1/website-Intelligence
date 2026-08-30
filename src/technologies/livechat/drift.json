@@ -1,0 +1,31 @@
+{
+  "id": "drift",
+  "name": "Drift",
+  "category": "Live Chat",
+  "description": "Conversational marketing and live chat",
+  "website": "https://www.drift.com",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "js\\.driftt\\.com|drift\\.com/include",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Drift script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "drift",
+      "confidence": 65,
+      "evidence": "window.drift global"
+    },
+    {
+      "type": "html",
+      "pattern": "js\\.driftt\\.com|drift\\.load",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Drift markers in HTML"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "joomla",
+  "name": "Joomla",
+  "category": "CMS",
+  "description": "Open-source CMS",
+  "website": "https://www.joomla.org",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "meta",
+      "name": "generator",
+      "pattern": "Joomla",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "Joomla generator meta"
+    },
+    {
+      "type": "script",
+      "pattern": "/media/system/js/|/media/jui/js/|option=com_",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Joomla asset path"
+    },
+    {
+      "type": "html",
+      "pattern": "/media/system/js/|Joomla!|option=com_",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Joomla markers in HTML"
+    }
+  ]
+}

@@ -8,7 +8,9 @@ import { createEvidence } from "./evidence.js";
 import { log, logError } from "../utils/logger.js";
 
 /** Minimum score to surface a technology in the UI */
-const REPORT_MIN = 70;
+const REPORT_MIN = 55;
+/** Server-inferred technologies need stronger evidence */
+const SERVER_MIN = 70;
 
 function toRegex(pattern, flags = "i") {
   try {
@@ -33,6 +35,7 @@ export function buildCorpus(signals, probes = {}) {
   const cookies = signals.cookies?.names || [];
   const htmlSample = signals.html?.sample || "";
   const iframes = signals.dom?.iframeSrcs || [];
+  const classHints = signals.dom?.classHints || [];
   const urlPool = [
     ...(signals.html?.urlPool || []),
     signals.page?.href || "",
@@ -50,6 +53,7 @@ export function buildCorpus(signals, probes = {}) {
     htmlSample,
     urlPool,
     iframes,
+    classHints,
     globals: probes.globals || {},
     selectors: probes.selectors || {},
     versionHints: probes.versions || {},
@@ -84,10 +88,11 @@ export function matchTechnology(def, corpus) {
     else if (matchedTypes.size === 2) score += 6;
 
     score = clampConfidence(Math.min(score, 99));
-    const min = Math.max(def.minConfidence ?? REPORT_MIN, REPORT_MIN);
+    const isServer = def.visibility === "server-inferred";
+    const floor = isServer ? SERVER_MIN : REPORT_MIN;
+    const min = Math.max(def.minConfidence ?? floor, floor);
 
-    // Server-inferred: never show weak guesses; require reportable score.
-    if (def.visibility === "server-inferred") {
+    if (isServer) {
       score = clampConfidence(Math.min(score, 85));
     }
 
@@ -98,12 +103,12 @@ export function matchTechnology(def, corpus) {
 
     const version = detectVersion(def, corpus);
     let displayLabel = confidenceLabel(score);
-    if (displayLabel === "Likely" || displayLabel === "Possible") {
+    if (displayLabel === "Possible") {
       log("Detector", `${def.name} rejected weak label`, { score, displayLabel });
       return null;
     }
 
-    if (def.visibility === "server-inferred") {
+    if (isServer) {
       displayLabel = "Detected";
     }
 
@@ -187,6 +192,26 @@ function testPattern(pattern, corpus) {
   if (type === "selector") {
     const count = corpus.selectors[pattern.pattern];
     return typeof count === "number" && count > 0;
+  }
+
+  if (type === "domClass" || type === "class") {
+    const re = toRegex(pattern.pattern, pattern.flags);
+    if (!re) return false;
+    const hints = corpus.classHints || [];
+    const minMatches = Number(pattern.minMatches) || 3;
+    let hits = 0;
+    for (const cls of hints) {
+      if (re.test(cls)) {
+        hits += 1;
+        if (hits >= minMatches) return true;
+      }
+    }
+    if (re.test(corpus.htmlSample)) {
+      const globalRe = new RegExp(pattern.pattern, (pattern.flags || "i") + "g");
+      const sampleMatches = corpus.htmlSample.match(globalRe);
+      if (sampleMatches && sampleMatches.length >= minMatches) return true;
+    }
+    return hits >= minMatches;
   }
 
   return false;

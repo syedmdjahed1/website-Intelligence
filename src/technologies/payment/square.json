@@ -1,0 +1,31 @@
+{
+  "id": "square",
+  "name": "Square",
+  "category": "Payment Processor",
+  "description": "Square payments and checkout",
+  "website": "https://squareup.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "squareup\\.com|squarecdn\\.com",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Square script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "Square",
+      "confidence": 65,
+      "evidence": "window.Square global"
+    },
+    {
+      "type": "html",
+      "pattern": "squareup\\.com|square\\.payments",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Square markers in HTML"
+    }
+  ]
+}

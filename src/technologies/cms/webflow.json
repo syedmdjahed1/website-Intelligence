@@ -1,0 +1,33 @@
+{
+  "id": "webflow",
+  "name": "Webflow",
+  "category": "CMS",
+  "description": "Visual web design and CMS platform",
+  "website": "https://webflow.com",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "assets-global\\.webflow\\.com|uploads-ssl\\.webflow\\.com|website-files\\.com",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Webflow CDN script"
+    },
+    {
+      "type": "html",
+      "pattern": "webflow\\.com|w-nav|w-dropdown|data-wf-page|Webflow\\.push",
+      "flags": "i",
+      "confidence": 65,
+      "evidence": "Webflow markers in HTML"
+    },
+    {
+      "type": "meta",
+      "name": "generator",
+      "pattern": "Webflow",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Webflow generator meta"
+    }
+  ]
+}

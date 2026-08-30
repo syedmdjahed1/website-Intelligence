@@ -2,7 +2,7 @@
 
 Chrome Extension (Manifest V3) that analyzes the currently open website for technology stack and other publicly observable characteristics.
 
-**Version:** 0.7.0 (UI refresh — Technologies / Site / Security)
+**Version:** 0.9.3 (UI/CSS class detection + expanded frameworks)
 
 ## UI
 
@@ -11,10 +11,10 @@ Light popup inspired by professional detector tools:
 - **Technologies** — grouped by category, searchable
 - **Site** — page stats grid, SEO & performance checklists
 - **Security** — pass/warn/fail checklist
-- Detection count badge on the brand icon
+- Detection count badge on the brand icon (green) and on the toolbar icon
 - JSON / CSV export
 
-Auto-analyzes when the popup opens; use the refresh button to re-run.
+Auto-detects when a page finishes loading; the toolbar badge shows the technology count. Opening the popup uses cached results; use refresh to re-run.
 
 
 ### Performance checks
@@ -46,6 +46,7 @@ Auto-analyzes when the popup opens; use the refresh button to re-run.
 ### Unit tests
 
 ```bash
+node tests/detectors/ui-css.test.js
 node tests/detectors/pattern-matcher.test.js
 node tests/detectors/seo-analyzer.test.js
 node tests/detectors/security-analyzer.test.js
@@ -59,6 +60,8 @@ node tests/detectors/performance-analyzer.test.js
 | `activeTab` | Access the active tab on popup open |
 | `scripting` | Inject collectors / probes |
 | `cookies` | Cookie **attribute** checks (not values) |
+| `tabs` | Tab events for background auto-detect |
+| `host_permissions` (`http/https`) | Analyze pages on load without opening the popup |
 
 ## Known limits
 

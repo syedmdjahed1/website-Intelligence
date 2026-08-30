@@ -1,0 +1,38 @@
+{
+  "id": "zendesk",
+  "name": "Zendesk",
+  "category": "Live Chat",
+  "description": "Customer support and live chat widget",
+  "website": "https://www.zendesk.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "static\\.zdassets\\.com|zendesk\\.com/embeddable",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Zendesk script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "zE",
+      "confidence": 55,
+      "evidence": "window.zE (Zendesk) global"
+    },
+    {
+      "type": "html",
+      "pattern": "zdassets\\.com|zE\\(|zendesk",
+      "flags": "i",
+      "confidence": 50,
+      "evidence": "Zendesk markers in HTML"
+    },
+    {
+      "type": "iframe",
+      "pattern": "zendesk\\.com",
+      "flags": "i",
+      "confidence": 45,
+      "evidence": "Zendesk iframe"
+    }
+  ]
+}

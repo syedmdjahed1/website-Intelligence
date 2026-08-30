@@ -1,0 +1,31 @@
+{
+  "id": "alpinejs",
+  "name": "Alpine.js",
+  "category": "Frontend Framework",
+  "description": "Lightweight JavaScript framework",
+  "website": "https://alpinejs.dev",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "alpinejs(?:\\.min)?\\.js|/alpinejs@|cdn\\.jsdelivr\\.net/npm/alpinejs",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Alpine.js script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "Alpine",
+      "confidence": 70,
+      "evidence": "window.Alpine global"
+    },
+    {
+      "type": "html",
+      "pattern": "x-data=|x-bind:|Alpine\\.start",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Alpine.js directives in HTML"
+    }
+  ]
+}

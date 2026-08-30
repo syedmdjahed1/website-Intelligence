@@ -24,56 +24,83 @@ const COLLECTOR_FILES = [
  * @returns {Promise<{ collection: object, probes: object }>}
  */
 export async function collectFromTab(tabId, probes = {}) {
-  log("Collect", "injecting collectors", { tabId });
-
-  try {
-    await chrome.scripting.executeScript({
-      target: { tabId },
-      files: COLLECTOR_FILES,
-    });
-  } catch (err) {
-    logError("Collect", "script injection failed", err);
-    throw new Error(
-      "Could not access this page. Reload the tab and try again, or the site may block script injection."
-    );
-  }
+  log("Collect", "collecting from tab", { tabId });
 
   let results;
   try {
     results = await chrome.scripting.executeScript({
       target: { tabId },
       func: () => {
-        if (typeof WI === "undefined" || typeof WI.collectAll !== "function") {
-          return { error: "Collectors did not initialize on this page." };
+        if (typeof WI !== "undefined" && typeof WI.collectAll === "function") {
+          return WI.collectAll();
         }
-        return WI.collectAll();
+        return { needsInjection: true };
       },
     });
   } catch (err) {
-    logError("Collect", "collectAll execution failed", err);
-    throw new Error("Page signal collection failed on this tab.");
+    logError("Collect", "initial collect failed", err);
+    throw new Error(
+      "Could not access this page. Reload the tab and try again, or the site may block script injection."
+    );
   }
 
-  const entry = results && results[0];
-  if (!entry || entry.result == null) {
-    throw new Error("No collection result returned from the page.");
+  const first = results && results[0];
+  let collection = first?.result;
+
+  if (collection?.needsInjection) {
+    log("Collect", "injecting collectors", { tabId });
+    try {
+      await chrome.scripting.executeScript({
+        target: { tabId },
+        files: COLLECTOR_FILES,
+      });
+    } catch (err) {
+      logError("Collect", "script injection failed", err);
+      throw new Error(
+        "Could not access this page. Reload the tab and try again, or the site may block script injection."
+      );
+    }
+
+    try {
+      results = await chrome.scripting.executeScript({
+        target: { tabId },
+        func: () => {
+          if (typeof WI === "undefined" || typeof WI.collectAll !== "function") {
+            return { error: "Collectors did not initialize on this page." };
+          }
+          return WI.collectAll();
+        },
+      });
+    } catch (err) {
+      logError("Collect", "collectAll execution failed", err);
+      throw new Error("Page signal collection failed on this tab.");
+    }
+    collection = results && results[0]?.result;
   }
 
-  if (entry.result.error) {
-    throw new Error(entry.result.error);
+  if (!collection || collection.error) {
+    throw new Error(collection?.error || "No collection result returned from the page.");
   }
 
   const probeResult = await runProbes(tabId, probes);
 
   log("Collect", "collection ok", {
-    errors: entry.result.collectorErrors?.length || 0,
+    errors: collection.collectorErrors?.length || 0,
     globals: Object.keys(probeResult.globals || {}).length,
   });
 
   return {
-    collection: entry.result,
+    collection,
     probes: probeResult,
   };
+}
+
+/**
+ * @param {number} tabId
+ * @param {{ globals?: string[], selectors?: string[] }} probes
+ */
+export async function runProbesOnly(tabId, probes) {
+  return runProbes(tabId, probes);
 }
 
 /**

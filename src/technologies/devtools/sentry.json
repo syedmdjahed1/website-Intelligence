@@ -1,0 +1,31 @@
+{
+  "id": "sentry",
+  "name": "Sentry",
+  "category": "Developer Tools",
+  "description": "Error monitoring and performance tracing",
+  "website": "https://sentry.io",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "browser\\.sentry-cdn\\.com|js\\.sentry-cdn\\.com|/@sentry/",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Sentry SDK script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "Sentry",
+      "confidence": 70,
+      "evidence": "window.Sentry global"
+    },
+    {
+      "type": "html",
+      "pattern": "sentry-cdn\\.com|Sentry\\.init",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Sentry markers in HTML"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Website Intelligence",
-  "version": "0.8.0",
+  "version": "0.9.3",
   "description": "Analyze the current website's technology stack, infrastructure, and publicly observable characteristics.",
   "action": {
     "default_popup": "src/popup/popup.html",
@@ -20,9 +20,35 @@
   "permissions": [
     "activeTab",
     "scripting",
-    "cookies"
+    "cookies",
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
   ],
   "background": {
-    "service_worker": "src/background/service-worker.js"
-  }
+    "service_worker": "src/background/service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": [
+        "src/content/wi-namespace.js",
+        "src/content/wi-logger.js",
+        "src/collectors/page-collector.js",
+        "src/collectors/meta-collector.js",
+        "src/collectors/script-collector.js",
+        "src/collectors/link-collector.js",
+        "src/collectors/cookie-collector.js",
+        "src/collectors/dom-collector.js",
+        "src/collectors/html-collector.js",
+        "src/collectors/performance-collector.js",
+        "src/content/collect-all.js",
+        "src/content/auto-detect.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
 }

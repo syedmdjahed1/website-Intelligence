@@ -1,0 +1,38 @@
+{
+  "id": "bigcommerce",
+  "name": "BigCommerce",
+  "category": "Ecommerce",
+  "description": "Hosted ecommerce platform",
+  "website": "https://www.bigcommerce.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "cdn\\d+\\.bigcommerce\\.com|bigcommerce\\.com/s/",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "BigCommerce script URL"
+    },
+    {
+      "type": "link",
+      "pattern": "cdn\\d+\\.bigcommerce\\.com",
+      "flags": "i",
+      "confidence": 65,
+      "evidence": "BigCommerce CDN link"
+    },
+    {
+      "type": "html",
+      "pattern": "bigcommerce\\.com|BCData|stencilBootstrap",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "BigCommerce markers in HTML"
+    },
+    {
+      "type": "global",
+      "pattern": "BCData",
+      "confidence": 60,
+      "evidence": "window.BCData global"
+    }
+  ]
+}

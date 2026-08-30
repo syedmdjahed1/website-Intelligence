@@ -1,0 +1,32 @@
+{
+  "id": "cdnjs",
+  "name": "cdnjs",
+  "category": "CDN",
+  "description": "Cloudflare-powered open source CDN",
+  "website": "https://cdnjs.com",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "cdnjs\\.cloudflare\\.com",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "cdnjs script URL"
+    },
+    {
+      "type": "link",
+      "pattern": "cdnjs\\.cloudflare\\.com",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "cdnjs stylesheet/link"
+    },
+    {
+      "type": "html",
+      "pattern": "cdnjs\\.cloudflare\\.com",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "cdnjs markers in HTML"
+    }
+  ]
+}

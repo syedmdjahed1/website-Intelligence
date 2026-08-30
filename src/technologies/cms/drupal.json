@@ -1,0 +1,40 @@
+{
+  "id": "drupal",
+  "name": "Drupal",
+  "category": "CMS",
+  "description": "Open-source content management system",
+  "website": "https://www.drupal.org",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "meta",
+      "name": "generator",
+      "pattern": "Drupal",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "Drupal generator meta"
+    },
+    {
+      "type": "script",
+      "pattern": "/sites/(?:default|all)/(?:files|modules|themes)|drupal\\.js",
+      "flags": "i",
+      "confidence": 65,
+      "evidence": "Drupal asset path"
+    },
+    {
+      "type": "html",
+      "pattern": "Drupal\\.settings|/sites/default/files|data-drupal",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Drupal markers in HTML"
+    },
+    {
+      "type": "cookie",
+      "pattern": "^SESS[a-z0-9]+$",
+      "flags": "i",
+      "confidence": 40,
+      "evidence": "Drupal session cookie (weak alone)"
+    }
+  ]
+}

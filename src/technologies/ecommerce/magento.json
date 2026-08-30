@@ -1,0 +1,40 @@
+{
+  "id": "magento",
+  "name": "Magento",
+  "category": "Ecommerce",
+  "description": "Adobe Commerce / Magento ecommerce platform",
+  "website": "https://business.adobe.com/products/magento/magento-commerce.html",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "mage/cookies|Magento_|requirejs-config",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Magento script path"
+    },
+    {
+      "type": "cookie",
+      "pattern": "^mage-|form_key|PHPSESSID",
+      "flags": "i",
+      "confidence": 40,
+      "evidence": "Magento cookie name (weak alone)"
+    },
+    {
+      "type": "html",
+      "pattern": "Magento_|mage/cookies|data-mage-init|x-magento",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Magento markers in HTML"
+    },
+    {
+      "type": "meta",
+      "name": "generator",
+      "pattern": "Magento",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Magento generator meta"
+    }
+  ]
+}

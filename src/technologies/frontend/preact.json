@@ -1,0 +1,31 @@
+{
+  "id": "preact",
+  "name": "Preact",
+  "category": "Frontend Framework",
+  "description": "Fast 3kB React alternative",
+  "website": "https://preactjs.com",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "preact(?:\\.min)?\\.js|/preact@",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Preact script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "preact",
+      "confidence": 70,
+      "evidence": "window.preact global"
+    },
+    {
+      "type": "html",
+      "pattern": "preact(?:\\.min)?\\.js|__PREACT_DEVTOOLS__",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Preact markers in HTML"
+    }
+  ]
+}

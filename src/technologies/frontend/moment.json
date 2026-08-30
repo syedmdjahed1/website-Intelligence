@@ -1,0 +1,31 @@
+{
+  "id": "moment",
+  "name": "Moment.js",
+  "category": "JavaScript Library",
+  "description": "Date and time parsing library",
+  "website": "https://momentjs.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "moment(?:\\.min)?\\.js|/moment@",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Moment.js script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "moment",
+      "confidence": 75,
+      "evidence": "window.moment global"
+    },
+    {
+      "type": "html",
+      "pattern": "moment(?:\\.min)?\\.js",
+      "flags": "i",
+      "confidence": 50,
+      "evidence": "Moment.js markers in HTML"
+    }
+  ]
+}

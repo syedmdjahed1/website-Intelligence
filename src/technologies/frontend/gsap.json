@@ -1,0 +1,37 @@
+{
+  "id": "gsap",
+  "name": "GSAP",
+  "category": "JavaScript Library",
+  "description": "GreenSock animation platform",
+  "website": "https://gsap.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "gsap(?:\\.min)?\\.js|greensock|/gsap@",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "GSAP script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "gsap",
+      "confidence": 75,
+      "evidence": "window.gsap global"
+    },
+    {
+      "type": "global",
+      "pattern": "TweenMax",
+      "confidence": 65,
+      "evidence": "window.TweenMax global"
+    },
+    {
+      "type": "html",
+      "pattern": "gsap(?:\\.min)?\\.js|greensock",
+      "flags": "i",
+      "confidence": 50,
+      "evidence": "GSAP markers in HTML"
+    }
+  ]
+}

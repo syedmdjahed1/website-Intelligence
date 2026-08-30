@@ -1,0 +1,37 @@
+{
+  "id": "lodash",
+  "name": "Lodash",
+  "category": "JavaScript Library",
+  "description": "Utility JavaScript library",
+  "website": "https://lodash.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "lodash(?:\\.min)?\\.js|/lodash@",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Lodash script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "_",
+      "confidence": 45,
+      "evidence": "window._ global (weak alone)"
+    },
+    {
+      "type": "global",
+      "pattern": "lodash",
+      "confidence": 70,
+      "evidence": "window.lodash global"
+    },
+    {
+      "type": "html",
+      "pattern": "lodash(?:\\.min)?\\.js",
+      "flags": "i",
+      "confidence": 50,
+      "evidence": "Lodash markers in HTML"
+    }
+  ]
+}

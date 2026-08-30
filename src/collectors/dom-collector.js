@@ -39,7 +39,7 @@ WI.collectors.dom = function collectDom() {
     var hintRoots = document.querySelectorAll("[id], [class]");
     var idSet = {};
     var classSet = {};
-    var limit = Math.min(hintRoots.length, 200);
+    var limit = Math.min(hintRoots.length, 500);
     for (var h = 0; h < limit; h++) {
       var el = hintRoots[h];
       if (el.id) idSet[el.id] = true;
@@ -52,8 +52,8 @@ WI.collectors.dom = function collectDom() {
       }
     }
 
-    result.idHints = Object.keys(idSet).slice(0, 40);
-    result.classHints = Object.keys(classSet).slice(0, 60);
+    result.idHints = Object.keys(idSet).slice(0, 60);
+    result.classHints = Object.keys(classSet).slice(0, 150);
 
     WI.log("Collector", "dom completed", { elements: result.elementCount });
     return result;

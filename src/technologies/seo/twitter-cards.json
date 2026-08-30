@@ -5,7 +5,7 @@
   "description": "Twitter / X card meta tags",
   "website": "https://developer.twitter.com/en/docs/twitter-for-websites/cards",
   "visibility": "client",
-  "minConfidence": 70,
+  "minConfidence": 50,
   "patterns": [
     {
       "type": "meta",
@@ -16,8 +16,32 @@
       "evidence": "twitter:card meta present"
     },
     {
+      "type": "meta",
+      "name": "twitter:title",
+      "pattern": ".",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "twitter:title meta present"
+    },
+    {
+      "type": "meta",
+      "name": "twitter:description",
+      "pattern": ".",
+      "flags": "i",
+      "confidence": 65,
+      "evidence": "twitter:description meta present"
+    },
+    {
+      "type": "meta",
+      "name": "twitter:image",
+      "pattern": ".",
+      "flags": "i",
+      "confidence": 65,
+      "evidence": "twitter:image meta present"
+    },
+    {
       "type": "html",
-      "pattern": "name=[\"']twitter:",
+      "pattern": "(?:name|property)=[\"']twitter:",
       "flags": "i",
       "confidence": 75,
       "evidence": "Twitter Card meta tags in HTML"

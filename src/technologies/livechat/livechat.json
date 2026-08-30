@@ -1,0 +1,31 @@
+{
+  "id": "livechat",
+  "name": "LiveChat",
+  "category": "Live Chat",
+  "description": "Live chat and help desk widget",
+  "website": "https://www.livechat.com",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "cdn\\.livechatinc\\.com|livechatinc\\.com/track",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "LiveChat script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "LiveChatWidget",
+      "confidence": 70,
+      "evidence": "window.LiveChatWidget global"
+    },
+    {
+      "type": "html",
+      "pattern": "livechatinc\\.com|__lc\\.license",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "LiveChat markers in HTML"
+    }
+  ]
+}

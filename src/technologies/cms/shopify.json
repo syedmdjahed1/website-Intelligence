@@ -1,7 +1,7 @@
 {
   "id": "shopify",
   "name": "Shopify",
-  "category": "CMS",
+  "category": "Ecommerce",
   "description": "Commerce platform / hosted storefront",
   "website": "https://www.shopify.com",
   "visibility": "client",

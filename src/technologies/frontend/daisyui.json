@@ -1,0 +1,33 @@
+{
+  "id": "daisyui",
+  "name": "daisyUI",
+  "category": "UI / CSS Framework",
+  "description": "Tailwind CSS component library",
+  "website": "https://daisyui.com",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "link",
+      "pattern": "daisyui|daisy-ui",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "daisyUI stylesheet URL"
+    },
+    {
+      "type": "domClass",
+      "pattern": "^(?:btn(?:-(?:primary|secondary|accent|info|success|warning|error|ghost|link|outline|sm|lg|xs|wide|block|circle|square))?|card(?:-(?:body|title|actions|image|side))?|navbar|dropdown|modal|drawer|hero|badge|alert|avatar|menu|tabs|table|collapse|divider|footer|indicator|join|kbd|link|loading|progress|radial-progress|rating|stats|swap|timeline|tooltip|checkbox|radio|toggle|range|select|textarea|input(?:-(?:bordered|ghost|primary|secondary|accent|info|success|warning|error))?|file-input|form-control|label|mockup-(?:code|phone|window)|artboard|phone-(?:\\d+)|theme-controller)$",
+      "flags": "i",
+      "minMatches": 3,
+      "confidence": 65,
+      "evidence": "daisyUI component classes in DOM"
+    },
+    {
+      "type": "html",
+      "pattern": "daisyui|data-theme=",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "daisyUI markers in HTML"
+    }
+  ]
+}

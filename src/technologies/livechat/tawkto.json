@@ -1,0 +1,31 @@
+{
+  "id": "tawkto",
+  "name": "Tawk.to",
+  "category": "Live Chat",
+  "description": "Free live chat widget",
+  "website": "https://www.tawk.to",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "embed\\.tawk\\.to",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Tawk.to script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "Tawk_API",
+      "confidence": 70,
+      "evidence": "window.Tawk_API global"
+    },
+    {
+      "type": "html",
+      "pattern": "embed\\.tawk\\.to|Tawk_API",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Tawk.to markers in HTML"
+    }
+  ]
+}

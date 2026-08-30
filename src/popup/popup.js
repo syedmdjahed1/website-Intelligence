@@ -4,29 +4,35 @@
 
 import { inspectUrl } from "../utils/helpers.js";
 import { log, logError } from "../utils/logger.js";
-import { collectFromTab } from "./collect-bridge.js";
-import { analyzeSignals, prepareDetection } from "../detector/detection-engine.js";
-import { collectSecurityHeaders } from "../security/header-collector.js";
-import { collectCookieSecurity } from "../security/cookie-collector.js";
 import { getTechIconUrl } from "../ui/tech-icons.js";
 
 const CATEGORY_COLORS = {
   "Frontend Framework": "#3b82f6",
   "JavaScript Library": "#0ea5e9",
+  "UI / CSS Framework": "#8b5cf6",
   "CSS Framework": "#8b5cf6",
   CMS: "#22c55e",
+  Ecommerce: "#059669",
+  "Payment Processor": "#0891b2",
+  "Live Chat": "#7c3aed",
+  "Fonts & Icons": "#c026d3",
+  "Font Script": "#c026d3",
   "WordPress Theme": "#15803d",
   "WordPress Plugin": "#2563eb",
   "Backend Framework": "#f59e0b",
   "Programming Language": "#a855f7",
   CDN: "#0f766e",
   Infrastructure: "#64748b",
+  "Web Server": "#b45309",
+  "Hosting & Server": "#b45309",
+  "Reverse Proxy": "#92400e",
   Analytics: "#f97316",
   "SEO & Meta": "#ea580c",
   "Marketing & Advertising": "#db2777",
   "Cookie & Consent": "#ca8a04",
   "Developer Tools": "#475569",
   Security: "#dc2626",
+  Miscellaneous: "#6366f1",
   Other: "#6366f1",
 };
 
@@ -34,19 +40,29 @@ const CATEGORY_ORDER = [
   "Frontend Framework",
   "Programming Language",
   "JavaScript Library",
+  "UI / CSS Framework",
   "CSS Framework",
   "CMS",
+  "Ecommerce",
+  "Payment Processor",
+  "Live Chat",
+  "Fonts & Icons",
+  "Font Script",
   "WordPress Theme",
   "WordPress Plugin",
   "Backend Framework",
   "CDN",
   "Infrastructure",
+  "Hosting & Server",
+  "Web Server",
+  "Reverse Proxy",
   "Analytics",
   "Marketing & Advertising",
   "Cookie & Consent",
   "SEO & Meta",
   "Developer Tools",
   "Security",
+  "Miscellaneous",
   "Other",
 ];
 
@@ -101,7 +117,7 @@ els.techSearch.addEventListener("input", () => {
   if (lastResult) renderTechnologies(lastResult);
 });
 
-els.refreshBtn.addEventListener("click", () => runAnalysis());
+els.refreshBtn.addEventListener("click", () => runAnalysis(true));
 
 function setBusy(busy) {
   els.refreshBtn.disabled = busy;
@@ -480,32 +496,63 @@ function applyResult(result, domain) {
   renderSite(result);
   renderSecurity(result);
   enableExports(true);
+
+  if (activeTab?.id) {
+    chrome.runtime.sendMessage({
+      type: "UPDATE_BADGE",
+      tabId: activeTab.id,
+      url: activeTab.url,
+      count: result.technologies?.length || 0,
+      result,
+    });
+  }
 }
 
-async function runAnalysis() {
+async function getCachedTabResult(tabId) {
+  return new Promise((resolve) => {
+    chrome.runtime.sendMessage({ type: "GET_TAB_RESULT", tabId }, (response) => {
+      if (chrome.runtime.lastError) {
+        resolve(null);
+        return;
+      }
+      resolve(response?.cached || null);
+    });
+  });
+}
+
+async function requestTabAnalysis(tabId, force = false) {
+  return new Promise((resolve, reject) => {
+    chrome.runtime.sendMessage({ type: "ANALYZE_TAB", tabId, force }, (response) => {
+      if (chrome.runtime.lastError) {
+        reject(new Error(chrome.runtime.lastError.message));
+        return;
+      }
+      if (response?.error) {
+        reject(new Error(response.error));
+        return;
+      }
+      resolve(response?.cached || null);
+    });
+  });
+}
+
+async function runAnalysis(force = false) {
   if (!activeTab?.id || !activeTab.url) return;
 
   const check = inspectUrl(activeTab.url);
   if (!check.analyzable) return;
 
   setBusy(true);
-  els.siteSub.textContent = "Analyzing…";
+  els.siteSub.textContent = force ? "Analyzing…" : "Loading…";
   els.blockedBanner.hidden = true;
 
   try {
-    log("Popup", "analyze", { tabId: activeTab.id });
-    const { defs, probes } = await prepareDetection();
-    const [{ collection, probes: probeData }, headers, cookieSecurity] = await Promise.all([
-      collectFromTab(activeTab.id, probes),
-      collectSecurityHeaders(activeTab.url),
-      collectCookieSecurity(activeTab.url),
-    ]);
-
-    const result = analyzeSignals(collection, probeData, defs, {
-      headers,
-      cookieSecurity,
-    });
-    applyResult(result, check.domain);
+    log("Popup", "analyze", { tabId: activeTab.id, force });
+    const cached = await requestTabAnalysis(activeTab.id, force);
+    if (!cached?.result) {
+      throw new Error("Analysis did not return a result for this tab.");
+    }
+    applyResult(cached.result, check.domain);
     showTab("technologies");
   } catch (err) {
     logError("Popup", "analyze failed", err);
@@ -547,7 +594,13 @@ async function init() {
       return;
     }
 
-    await runAnalysis();
+    const cached = await getCachedTabResult(activeTab.id);
+    if (cached?.result && cached.url === activeTab.url) {
+      applyResult(cached.result, check.domain);
+      return;
+    }
+
+    await runAnalysis(false);
   } catch (err) {
     logError("Popup", "init failed", err);
     els.siteSub.textContent = "Error";

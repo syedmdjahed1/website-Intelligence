@@ -1,0 +1,38 @@
+{
+  "id": "hubspot",
+  "name": "HubSpot",
+  "category": "Analytics",
+  "description": "Marketing, CRM, and analytics platform",
+  "website": "https://www.hubspot.com",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "js\\.hs-scripts\\.com|js\\.hsforms\\.net|js\\.hs-analytics\\.net|hs-banner\\.com",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "HubSpot script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "_hsq",
+      "confidence": 65,
+      "evidence": "window._hsq global"
+    },
+    {
+      "type": "html",
+      "pattern": "hs-scripts\\.com|hsforms\\.net|hubspot",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "HubSpot markers in HTML"
+    },
+    {
+      "type": "cookie",
+      "pattern": "^__hstc$|^hubspotutk$",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "HubSpot cookie name"
+    }
+  ]
+}

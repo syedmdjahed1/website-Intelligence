@@ -1,0 +1,32 @@
+{
+  "id": "klarna",
+  "name": "Klarna",
+  "category": "Payment Processor",
+  "description": "Buy now pay later payments",
+  "website": "https://www.klarna.com",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "klarna\\.com|klarnacdn\\.net|klarna-payments",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Klarna script URL"
+    },
+    {
+      "type": "html",
+      "pattern": "klarna|KlarnaPayments",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Klarna markers in HTML"
+    },
+    {
+      "type": "iframe",
+      "pattern": "klarna\\.com",
+      "flags": "i",
+      "confidence": 50,
+      "evidence": "Klarna iframe"
+    }
+  ]
+}

@@ -1,38 +1,46 @@
 {
   "id": "bootstrap",
   "name": "Bootstrap",
-  "category": "CSS Framework",
+  "category": "UI / CSS Framework",
   "description": "Front-end toolkit for responsive layouts",
   "website": "https://getbootstrap.com",
   "visibility": "client",
-  "minConfidence": 40,
+  "minConfidence": 50,
   "patterns": [
     {
       "type": "link",
-      "pattern": "bootstrap(?:\\.min)?\\.css|bootstrap@|/bootstrap/",
+      "pattern": "bootstrap(?:\\.min)?\\.css|bootstrap@|/bootstrap/|getbootstrap\\.com",
       "flags": "i",
-      "confidence": 55,
+      "confidence": 70,
       "evidence": "Bootstrap stylesheet URL"
     },
     {
       "type": "script",
-      "pattern": "bootstrap(?:\\.bundle)?(?:\\.min)?\\.js|bootstrap@",
+      "pattern": "bootstrap(?:\\.bundle)?(?:\\.min)?\\.js|bootstrap@|getbootstrap\\.com",
       "flags": "i",
-      "confidence": 50,
+      "confidence": 65,
       "evidence": "Bootstrap script URL"
     },
     {
       "type": "global",
       "pattern": "bootstrap",
-      "confidence": 45,
+      "confidence": 60,
       "evidence": "window.bootstrap global"
     },
     {
-      "type": "html",
-      "pattern": "data-bs-toggle=|data-toggle=\"modal\"|class=\"[^\"]*\\bnavbar-expand",
+      "type": "domClass",
+      "pattern": "^(?:container(?:-(?:sm|md|lg|xl|xxl|fluid))?|row|col(?:-(?:\\d+|sm|md|lg|xl|xxl|auto))?|btn(?:-(?:primary|secondary|success|danger|warning|info|light|dark|outline-\\w+|sm|lg))?|navbar|nav-(?:link|item|tabs|pills)|modal|card(?:-(?:body|header|footer|title|text|img))?|form-control|form-select|input-group|alert(?:-(?:primary|secondary|success|danger|warning|info))?|badge|dropdown|accordion|carousel|offcanvas|d-(?:flex|block|none|grid)|text-(?:center|start|end)|mb-\\d|mt-\\d|p-\\d|g-\\d|data-bs-toggle)",
       "flags": "i",
-      "confidence": 30,
-      "evidence": "Bootstrap markup patterns"
+      "minMatches": 3,
+      "confidence": 60,
+      "evidence": "Bootstrap CSS classes in DOM"
+    },
+    {
+      "type": "html",
+      "pattern": "data-bs-toggle=|data-bs-target=|data-toggle=\"modal\"|class=\"[^\"]*\\bnavbar-expand",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Bootstrap markup attributes"
     }
   ]
 }

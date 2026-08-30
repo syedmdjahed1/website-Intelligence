@@ -1,0 +1,32 @@
+{
+  "id": "adobe-fonts",
+  "name": "Adobe Fonts",
+  "category": "Fonts & Icons",
+  "description": "Adobe Typekit / web fonts",
+  "website": "https://fonts.adobe.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "use\\.typekit\\.net|p\\.typekit\\.net",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Adobe Fonts / Typekit script URL"
+    },
+    {
+      "type": "link",
+      "pattern": "use\\.typekit\\.net|p\\.typekit\\.net",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Adobe Fonts stylesheet/link"
+    },
+    {
+      "type": "html",
+      "pattern": "typekit\\.net|Typekit\\.load",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Adobe Fonts markers in HTML"
+    }
+  ]
+}

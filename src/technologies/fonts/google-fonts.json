@@ -1,0 +1,32 @@
+{
+  "id": "google-fonts",
+  "name": "Google Fonts",
+  "category": "Fonts & Icons",
+  "description": "Web font hosting by Google",
+  "website": "https://fonts.google.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "link",
+      "pattern": "fonts\\.googleapis\\.com|fonts\\.gstatic\\.com",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Google Fonts stylesheet/link"
+    },
+    {
+      "type": "script",
+      "pattern": "fonts\\.googleapis\\.com|fonts\\.gstatic\\.com",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Google Fonts script URL"
+    },
+    {
+      "type": "html",
+      "pattern": "fonts\\.googleapis\\.com|fonts\\.gstatic\\.com",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Google Fonts markers in HTML"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "mixpanel",
+  "name": "Mixpanel",
+  "category": "Analytics",
+  "description": "Product analytics platform",
+  "website": "https://mixpanel.com",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "cdn\\.mxpnl\\.com|mixpanel\\.com/(?:site_media|libs)",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Mixpanel script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "mixpanel",
+      "confidence": 70,
+      "evidence": "window.mixpanel global"
+    },
+    {
+      "type": "html",
+      "pattern": "mixpanel\\.track|cdn\\.mxpnl\\.com",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Mixpanel markers in HTML"
+    }
+  ]
+}

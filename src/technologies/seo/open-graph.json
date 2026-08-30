@@ -5,7 +5,7 @@
   "description": "Facebook Open Graph meta protocol",
   "website": "https://ogp.me",
   "visibility": "client",
-  "minConfidence": 70,
+  "minConfidence": 50,
   "patterns": [
     {
       "type": "meta",
@@ -17,11 +17,43 @@
     },
     {
       "type": "meta",
+      "name": "og:description",
+      "pattern": ".",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "og:description meta present"
+    },
+    {
+      "type": "meta",
       "name": "og:image",
       "pattern": ".",
       "flags": "i",
       "confidence": 75,
       "evidence": "og:image meta present"
+    },
+    {
+      "type": "meta",
+      "name": "og:url",
+      "pattern": ".",
+      "flags": "i",
+      "confidence": 65,
+      "evidence": "og:url meta present"
+    },
+    {
+      "type": "meta",
+      "name": "og:type",
+      "pattern": ".",
+      "flags": "i",
+      "confidence": 65,
+      "evidence": "og:type meta present"
+    },
+    {
+      "type": "meta",
+      "name": "og:site_name",
+      "pattern": ".",
+      "flags": "i",
+      "confidence": 65,
+      "evidence": "og:site_name meta present"
     },
     {
       "type": "html",

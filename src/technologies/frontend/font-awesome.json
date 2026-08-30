@@ -1,32 +1,40 @@
 {
   "id": "font-awesome",
   "name": "Font Awesome",
-  "category": "JavaScript Library",
+  "category": "Fonts & Icons",
   "description": "Icon toolkit",
   "website": "https://fontawesome.com",
   "visibility": "client",
-  "minConfidence": 70,
+  "minConfidence": 50,
   "patterns": [
     {
       "type": "link",
-      "pattern": "font-awesome|fontawesome",
+      "pattern": "font-awesome|fontawesome|use\\.fontawesome\\.com",
       "flags": "i",
-      "confidence": 85,
+      "confidence": 80,
       "evidence": "Font Awesome stylesheet URL"
     },
     {
       "type": "script",
-      "pattern": "fontawesome|font-awesome",
+      "pattern": "fontawesome|font-awesome|kit\\.fontawesome\\.com",
       "flags": "i",
-      "confidence": 80,
+      "confidence": 75,
       "evidence": "Font Awesome script URL"
     },
     {
-      "type": "html",
-      "pattern": "font-awesome|fa-solid|fa-brands|kit\\.fontawesome\\.com",
+      "type": "domClass",
+      "pattern": "^(?:fa-(?:solid|regular|brands|light|thin|duotone|sharp)|fas|far|fab|fal|fat|fad|fa-\\w+|icon)$",
       "flags": "i",
-      "confidence": 45,
-      "evidence": "Font Awesome class markers (weak alone)"
+      "minMatches": 2,
+      "confidence": 60,
+      "evidence": "Font Awesome icon classes in DOM"
+    },
+    {
+      "type": "html",
+      "pattern": "fa-solid|fa-brands|fa-regular|kit\\.fontawesome\\.com|<i[^>]+class=\"[^\"]*\\bfa-",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Font Awesome markup in HTML"
     }
   ]
 }

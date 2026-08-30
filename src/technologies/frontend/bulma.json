@@ -1,0 +1,26 @@
+{
+  "id": "bulma",
+  "name": "Bulma",
+  "category": "UI / CSS Framework",
+  "description": "Modern CSS framework based on Flexbox",
+  "website": "https://bulma.io",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "link",
+      "pattern": "bulma(?:\\.min)?\\.css|bulma@|bulma\\.io",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Bulma stylesheet URL"
+    },
+    {
+      "type": "domClass",
+      "pattern": "^(?:navbar|hero(?:-(?:body|head|foot))?|section|container|columns|column|button(?:-(?:primary|link|info|success|warning|danger|light|dark|is-\\w+))?|title|subtitle|box|card(?:-(?:header|content|footer|image))?|field|control|input|select|textarea|notification|modal|tabs|menu|level|footer|tag|table|media|breadcrumb|pagination|icon(?:-(?:text|large))?|is-(?:primary|link|info|success|warning|danger|light|dark|white|black|small|medium|large|fullwidth|mobile|tablet|desktop|flex|block|hidden|active|loading|rounded|shadow|size-\\d+))$",
+      "flags": "i",
+      "minMatches": 3,
+      "confidence": 60,
+      "evidence": "Bulma CSS classes in DOM"
+    }
+  ]
+}

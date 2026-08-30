@@ -1,0 +1,38 @@
+{
+  "id": "hcaptcha",
+  "name": "hCaptcha",
+  "category": "Security",
+  "description": "hCaptcha bot protection",
+  "website": "https://www.hcaptcha.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "hcaptcha\\.com/1/api\\.js|js\\.hcaptcha\\.com",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "hCaptcha script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "hcaptcha",
+      "confidence": 70,
+      "evidence": "window.hcaptcha global"
+    },
+    {
+      "type": "html",
+      "pattern": "h-captcha|hcaptcha\\.com",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "hCaptcha markers in HTML"
+    },
+    {
+      "type": "iframe",
+      "pattern": "hcaptcha\\.com",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "hCaptcha iframe"
+    }
+  ]
+}

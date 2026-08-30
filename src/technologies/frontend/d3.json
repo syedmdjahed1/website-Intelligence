@@ -1,0 +1,31 @@
+{
+  "id": "d3",
+  "name": "D3.js",
+  "category": "JavaScript Library",
+  "description": "Data visualization library",
+  "website": "https://d3js.org",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "d3(?:\\.v\\d+)?(?:\\.min)?\\.js|/d3@",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "D3.js script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "d3",
+      "confidence": 75,
+      "evidence": "window.d3 global"
+    },
+    {
+      "type": "html",
+      "pattern": "d3(?:\\.v\\d+)?(?:\\.min)?\\.js",
+      "flags": "i",
+      "confidence": 50,
+      "evidence": "D3.js markers in HTML"
+    }
+  ]
+}

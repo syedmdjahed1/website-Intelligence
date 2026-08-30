@@ -1,0 +1,38 @@
+{
+  "id": "paypal",
+  "name": "PayPal",
+  "category": "Payment Processor",
+  "description": "Online payments and checkout",
+  "website": "https://www.paypal.com",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "paypal\\.com/sdk|paypalobjects\\.com",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "PayPal script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "paypal",
+      "confidence": 55,
+      "evidence": "window.paypal global"
+    },
+    {
+      "type": "html",
+      "pattern": "paypal\\.com/sdk|paypal-button|data-paypal",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "PayPal markers in HTML"
+    },
+    {
+      "type": "iframe",
+      "pattern": "paypal\\.com",
+      "flags": "i",
+      "confidence": 50,
+      "evidence": "PayPal iframe"
+    }
+  ]
+}

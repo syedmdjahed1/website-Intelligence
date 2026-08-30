@@ -1,0 +1,31 @@
+{
+  "id": "fullstory",
+  "name": "FullStory",
+  "category": "Analytics",
+  "description": "Digital experience analytics and session replay",
+  "website": "https://www.fullstory.com",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "fullstory\\.com/s/fs\\.js|edge\\.fullstory\\.com",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "FullStory script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "FS",
+      "confidence": 55,
+      "evidence": "window.FS global"
+    },
+    {
+      "type": "html",
+      "pattern": "fullstory\\.com|_fs_org",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "FullStory markers in HTML"
+    }
+  ]
+}

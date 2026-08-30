@@ -1,0 +1,26 @@
+{
+  "id": "animate-css",
+  "name": "Animate.css",
+  "category": "UI / CSS Framework",
+  "description": "CSS animation library",
+  "website": "https://animate.style",
+  "visibility": "client",
+  "minConfidence": 50,
+  "patterns": [
+    {
+      "type": "link",
+      "pattern": "animate(?:\\.min)?\\.css|animate\\.style",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Animate.css stylesheet URL"
+    },
+    {
+      "type": "domClass",
+      "pattern": "^(?:animate__animated|animate__(?:bounce|flash|pulse|rubberBand|shakeX|shakeY|headShake|swing|tada|wobble|jello|heartBeat|backInUp|backInDown|backInLeft|backInRight|backOutUp|backOutDown|backOutLeft|backOutRight|bounceIn|bounceInUp|bounceInDown|bounceInLeft|bounceInRight|fadeIn|fadeInUp|fadeInDown|fadeInLeft|fadeInRight|fadeOut|flip|lightSpeedIn|rotateIn|rollIn|zoomIn|slideInUp|slideInDown|slideInLeft|slideInRight))$",
+      "flags": "i",
+      "minMatches": 1,
+      "confidence": 70,
+      "evidence": "Animate.css classes in DOM"
+    }
+  ]
+}

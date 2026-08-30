@@ -5,7 +5,7 @@
   "description": "CDN / security / DNS edge network",
   "website": "https://www.cloudflare.com",
   "visibility": "client",
-  "minConfidence": 70,
+  "minConfidence": 55,
   "patterns": [
     {
       "type": "cookie",

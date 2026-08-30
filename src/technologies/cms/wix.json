@@ -1,0 +1,39 @@
+{
+  "id": "wix",
+  "name": "Wix",
+  "category": "CMS",
+  "description": "Website builder platform",
+  "website": "https://www.wix.com",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "static\\.wixstatic\\.com|parastorage\\.com|wix\\.com/_partials",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "Wix CDN script URL"
+    },
+    {
+      "type": "html",
+      "pattern": "wixstatic\\.com|X-Wix-|wix-code|wixsite\\.com",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Wix markers in HTML"
+    },
+    {
+      "type": "meta",
+      "name": "generator",
+      "pattern": "Wix",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Wix generator meta"
+    },
+    {
+      "type": "global",
+      "pattern": "wixBiSession",
+      "confidence": 60,
+      "evidence": "window.wixBiSession global"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "cloudflare-turnstile",
+  "name": "Cloudflare Turnstile",
+  "category": "Security",
+  "description": "Cloudflare CAPTCHA alternative",
+  "website": "https://www.cloudflare.com/products/turnstile",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "challenges\\.cloudflare\\.com/turnstile",
+      "flags": "i",
+      "confidence": 85,
+      "evidence": "Turnstile script URL"
+    },
+    {
+      "type": "html",
+      "pattern": "cf-turnstile|challenges\\.cloudflare\\.com/turnstile",
+      "flags": "i",
+      "confidence": 70,
+      "evidence": "Turnstile widget in HTML"
+    },
+    {
+      "type": "iframe",
+      "pattern": "challenges\\.cloudflare\\.com",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Cloudflare challenge iframe"
+    }
+  ]
+}

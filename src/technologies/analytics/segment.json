@@ -1,0 +1,31 @@
+{
+  "id": "segment",
+  "name": "Segment",
+  "category": "Analytics",
+  "description": "Customer data platform / analytics routing",
+  "website": "https://segment.com",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "cdn\\.segment\\.com/analytics\\.js|cdn\\.segment\\.com/analytics-next",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Segment analytics script"
+    },
+    {
+      "type": "global",
+      "pattern": "analytics",
+      "confidence": 45,
+      "evidence": "window.analytics global (weak alone)"
+    },
+    {
+      "type": "html",
+      "pattern": "cdn\\.segment\\.com|analytics\\.load\\(",
+      "flags": "i",
+      "confidence": 60,
+      "evidence": "Segment markers in HTML"
+    }
+  ]
+}

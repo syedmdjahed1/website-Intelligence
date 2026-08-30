@@ -1,0 +1,31 @@
+{
+  "id": "crisp",
+  "name": "Crisp",
+  "category": "Live Chat",
+  "description": "Live chat and customer messaging",
+  "website": "https://crisp.chat",
+  "visibility": "client",
+  "minConfidence": 45,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "client\\.crisp\\.chat",
+      "flags": "i",
+      "confidence": 80,
+      "evidence": "Crisp script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "$crisp",
+      "confidence": 65,
+      "evidence": "window.$crisp global"
+    },
+    {
+      "type": "html",
+      "pattern": "client\\.crisp\\.chat|\\$crisp",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "Crisp markers in HTML"
+    }
+  ]
+}

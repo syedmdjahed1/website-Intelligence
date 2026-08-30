@@ -1,0 +1,31 @@
+{
+  "id": "htmx",
+  "name": "htmx",
+  "category": "JavaScript Library",
+  "description": "HTML extension library for AJAX",
+  "website": "https://htmx.org",
+  "visibility": "client",
+  "minConfidence": 55,
+  "patterns": [
+    {
+      "type": "script",
+      "pattern": "htmx(?:\\.min)?\\.js|/htmx@|unpkg\\.com/htmx",
+      "flags": "i",
+      "confidence": 75,
+      "evidence": "htmx script URL"
+    },
+    {
+      "type": "global",
+      "pattern": "htmx",
+      "confidence": 70,
+      "evidence": "window.htmx global"
+    },
+    {
+      "type": "html",
+      "pattern": "hx-get=|hx-post=|hx-trigger=",
+      "flags": "i",
+      "confidence": 55,
+      "evidence": "htmx attributes in HTML"
+    }
+  ]
+}

@@ -17,6 +17,11 @@ WI.collectors.scripts = function collectScripts() {
       var el = nodes[i];
       var src = el.getAttribute("src");
       if (src) {
+        try {
+          src = new URL(src, location.href).href;
+        } catch (e) {
+          /* keep original */
+        }
         external.push({
           src: src,
           async: el.hasAttribute("async"),
